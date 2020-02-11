@@ -19,7 +19,7 @@
 |prefecture|string|null: false|
 
 |municipality|string|null: false|
-|house number|string|null: false|
+|house_number|string|null: false|
 |tel|integer|unique|
 |icon|stirng|
  
