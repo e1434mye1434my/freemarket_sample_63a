@@ -1,3 +1,5 @@
+![Untitled Diagram](https://user-images.githubusercontent.com/57151814/74227619-330d3b80-4d02-11ea-8077-e8d5744f8922.jpg)
+
 # DB設計
  
 ## usersテーブル
@@ -15,10 +17,11 @@
 |birth_day|integer|null: false|
 |post_number|integer|null: false|
 |prefecture|string|null: false|
-|municipalitie|string|null: false|
-|address|string|null: false|
+
+|municipality|string|null: false|
+|house number|string|null: false|
 |tel|integer|unique|
-|user_icon|stirng|
+|icon|stirng|
  
 ### Association
 - has_many :comments
@@ -65,8 +68,14 @@
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |price|integer|null: false|
-|item_condition|string|null: false|
-|item_size|string|null: false|
+
+
+|condition|string|null: false|
+|size|string|null: false|
+|shippsing_charges|stirng|null: false|
+|shipping_method|string|null: false|
+|shipping_area|string|null: false|
+|estimated_shipping_fee|string|null: false|
 |introduction|text|null: false|
 |sales_status|string|null: false|
 
