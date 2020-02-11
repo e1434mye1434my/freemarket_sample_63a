@@ -14,11 +14,11 @@
 |birth_month|integer|null: false|
 |birth_day|integer|null: false|
 |post_number|integer|null: false|
-|prefectures|string|null: false|
-|municipalities|string|null: false|
-|address|string|null: false|
+|prefecture|string|null: false|
+|municipality|string|null: false|
+|house number|string|null: false|
 |tel|integer|unique|
-|user_icon|stirng|
+|icon|stirng|
  
 ### Association
 - has_many :comments
@@ -65,8 +65,8 @@
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |price|integer|null: false|
-|item_condition|string|null: false|
-|item_size|string|null: false|
+|condition|string|null: false|
+|size|string|null: false|
 |shippsing_charges|stirng|null: false|
 |shipping_method|string|null: false|
 |shipping_area|string|null: false|
