@@ -14,8 +14,8 @@
 |birth_month|integer|null: false|
 |birth_day|integer|null: false|
 |post_number|integer|null: false|
-|prefectures|string|null: false|
-|municipalities|string|null: false|
+|prefecture|string|null: false|
+|municipalitie|string|null: false|
 |address|string|null: false|
 |tel|integer|unique|
 |user_icon|stirng|
@@ -67,13 +67,9 @@
 |price|integer|null: false|
 |item_condition|string|null: false|
 |item_size|string|null: false|
-|shippsing_charges|stirng|null: false|
-|shipping_method|string|null: false|
-|shipping_area|string|null: false|
-|estimated_shipping_fee|string|null: false|
 |introduction|text|null: false|
 |sales_status|string|null: false|
- 
+
 ###  Association
 - belongs_to :user
 - belongs_to :bland
@@ -82,6 +78,22 @@
 - has_many :categories, through: :item_categories
 - has_many :likes, dependent: :destroy
 - has_many :liked_users, through: :likes, source: :user
+
+## shippsingテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|foreign_key: true|
+|burden|string|null: false|
+|method|string|null: false|
+|area||string|null: false|
+|estimated|string|null: false|
+
+###  Association
+- belongs_to :user
+- belongs_to :item
+
+
 ## item_categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
