@@ -1,0 +1,2 @@
+class KariController < ApplicationController
+end
