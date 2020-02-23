@@ -1,0 +1,161 @@
+@charset "UTF-8";
+*{
+  .main{
+    background-color: #f8f8f8;
+    .firstBox{
+      padding: 40px;
+      margin: 0 auto;
+      .secondBox{
+        width: 700px;
+        margin: 0 auto;
+        .topBox{
+          padding: 0;
+          margin: 0;
+          .itemBox{
+            padding: 24px 40px 40px;
+            background-color: #fff;
+            &__name{
+              width: 100%;
+              text-align: center;
+              font-weight: bold;
+            }
+            
+            &__body{
+              margin: 16px 0 0;
+              &--img{
+                object-fit: cover;
+                display: flex;
+                flex-direction: column;
+                width: 560px;
+                align-items: center;
+                margin: 0 auto;
+                .imgs{
+                  display: flex;
+                  justify-content: center;
+                  margin-top: 10px;
+                  &__list{
+                    margin: 0 10px 0 0;
+                  }
+                }
+              }
+            }
+          
+            &__price{
+              text-align: center;
+              font-weight: bold;
+              font-size: 2.5em;
+              &--tax{
+                font-size: 0.4em;
+                font-weight: normal;
+              }
+            }
+            
+            &__detail{
+              margin-bottom: 30px;
+            }
+            
+            .table{
+              margin-bottom: 20px;
+              table{
+                width: 100%;
+                border-collapse: collapse;
+                tr{
+                  th{
+                    padding: 10px;
+                    width: 25%;
+                    font-weight: normal;
+                    background-color: #eee;
+                    border: 1px solid #dedede;
+                  }
+                  td{
+                    font-size: 14px;
+                    padding: 15px;
+                    width: 70%;
+                    border: 1px solid #dedede;
+                    .table__link{
+                      color: #3ccace;
+                    }
+                  }
+                }
+              }
+            }
+
+            .optionalArea{
+              display: flex;
+              justify-content: space-between;
+              padding-top: 10px;
+                .likeBtn{
+                  padding: 10px;
+                  border: solid 1px #ffb340;
+                  border-radius: 40px;
+                  color: #3ccace;
+                }
+              .optional{
+                &__btn{
+                  padding: 6px 10px;
+                  border: solid 1px;
+                  border-radius: 4px;
+                  &--text{
+                    color: #333;
+                    font-size: 14px;
+                  }
+                }
+              }
+            }
+          }
+
+          .buttonBox{
+            text-align: center;
+            padding: 24px;
+            margin: 10px 0;
+            background-color: #fff;
+            .textarea{
+              padding: 10px;
+              width: 100%;
+              min-height: 104px;
+            }
+        
+            .text{
+              text-align: left;
+              padding: 8px;
+              margin: 10px 0 30px;
+              font-size: 14px;
+              background-color: #f8f8f8;
+            }
+        
+            .commentBtn{
+              font-size: 17px;
+              border: solid 1px #3ccace;
+              background: #3CCACE;
+              color: #fff;
+              width: 60%;
+              line-height: 48px;
+              border-radius: 100px;
+              align-items: center;
+            }
+          }
+        }
+        .links{
+          display: flex;
+          justify-content: space-between;
+          &__etc{
+            color: #3ccace;
+          }
+        }
+        
+        .relatedItem{
+          margin: 24px 0 8px;
+          font-size: 22px;
+          &__etc{
+            color: #3ccace;
+          }
+        }
+      }
+    }
+  }
+
+  .fa{
+    font-size: inherit;
+    color: #3ccace;
+  }
+}

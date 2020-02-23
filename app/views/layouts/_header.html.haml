@@ -1,0 +1,42 @@
+%header.header
+  .headerInner
+    .mainHeader
+      %h1.icon
+        %a{:href => "#"}
+          = image_tag 'logo.png', class: 'logo'
+      .searchBox
+        %form.search{"accept-charset" => "UTF-8", :action => "#", :method => "GET"}
+          %input#searchInput.search__input{:name => "key", :placeholder => "キーワードから探す"}/
+          %button.btn{:type => "submit"}
+            .btn__icon
+              = image_tag "icon-search 1.png", class: "btn__icon--img"
+    .nav
+      %ul.listLeft
+        %li
+          %a.listLeft--first{:href => "#"} カテゴリー
+        %li
+          %a.listLeft--second{:href => "#"} ブランド
+      %ul.listRight
+        %li
+          %a.listRight__item{:href => "#"} ログイン
+        %li
+          %a.listRight__item{:href => "#"} 新規会員登録
+%nav.breadCrumbs
+  %ul.bread
+    %li.bread__list
+      %a.bread__list--link{:href => "#"} FURIMA
+    %li.bread__list
+      %i.fa.fa-angle-right
+    %li.bread__list
+      %a.bread__list--link{:href => "#"} レディース
+    %li.bread__list
+      %i.fa.fa-angle-right
+    %li.bread__list
+      %a.bread__list--link{:href => "#"} トップス
+    %li.bread__list
+      %i.fa.fa-angle-right
+    %li.bread__list
+      %a.bread__list--link{:href => "#"} Tシャツ/カットソー(半袖/袖なし)
+    %li.bread__list
+      %i.fa.fa-angle-right
+    %li.bread__list product
