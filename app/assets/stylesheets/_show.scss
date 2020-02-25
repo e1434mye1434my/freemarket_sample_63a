@@ -1,5 +1,35 @@
 @charset "UTF-8";
 *{
+  .breadCrumbs{
+    width: 100%;
+    border-top: 1px solid #eee;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
+    position: relative;
+    padding: 0 60px;
+    .bread{
+      max-width: 1040px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 16px 0 17px;
+      font-size: 14px;
+      &__list{
+        padding: 0 10px 0 0;
+        float: left;
+        &--link{
+          color: #333;
+        }
+        .fa{
+          font: normal;
+        }
+      }
+    }
+    .bread::after{
+      display: block;
+      content: "";
+      clear: both;
+    }
+  }
+  
   .main{
     background-color: #f8f8f8;
     .firstBox{
