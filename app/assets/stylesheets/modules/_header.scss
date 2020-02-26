@@ -1,10 +1,8 @@
 @charset "UTF-8";
+@import 'config/variable';
 *{
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
   text-decoration: none;
-  list-style: none;
   .header{
     padding: 0 60px;
     .headerInner{
@@ -44,7 +42,7 @@
               width: 36px;
               border: 0;
               cursor: pointer;
-              background: #3ccace;
+              background: $bluegreen;
               padding: 8px;
               &__icon{
                 margin: 0;
@@ -68,13 +66,13 @@
         display: flex;
         position: relative;
         &--first{
-          color: #333;
+          color: $dark;
           line-height: 38px;
           padding: 0 30px 0 0;
         }
         
         &--second{
-          color: #333;
+          color: $dark;
           display: flex;
           line-height: 38px;
           padding: 0 0 0 16px;
@@ -85,7 +83,7 @@
         margin-left: auto;
         display: flex;
         &__item{
-          color: #333;
+          color: $dark;
           line-height: 38px;
           padding: 0 0 0 16px;
         }

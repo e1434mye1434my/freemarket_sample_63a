@@ -1,13 +1,13 @@
 @charset "UTF-8";
+@import 'config/variable';
 *{
   .aside{
-    background-color: tomato;
     background-image: url(bg-appBanner-pict.jpg);
     padding: 100px 40px;
     background-size: cover;
     background-position: center;
     .inner{
-      color: #fff;
+      color: $fc-w;
       text-align: center;
       &__title{
         text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);

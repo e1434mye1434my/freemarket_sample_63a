@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import 'config/variable';
 *{
   .footer{
     padding: 60px 0; 
@@ -9,7 +10,7 @@
       margin:  0 auto;
       display: flex;
       &__title{
-        color: #fff;
+        color: $fc-w;
         margin: 0 0 20px;
         font-size: 16px;
         font-weight: bold;
@@ -24,7 +25,7 @@
           margin: 0;
           padding: 0;
           &--links{
-            color: #fff;
+            color: $fc-w;
             font-size: 12px;
             line-height: 32px;
           }
@@ -36,7 +37,7 @@
       max-width: 160px;
       width: 100%;
       .content__link{
-        color: #fff;
+        color: $fc-w;
         font-size: 12px;
         line-height: 32px;
         &--img{
@@ -46,13 +47,13 @@
       }
     }
     small{
-      color: #fff;
+      color: $fc-w;
     }
   }
   
     .purchaseBtn{
       width: 120px;
-      background-color: #3ccace;
+      background-color: $bluegreen;
       text-align: center;
       border-radius: 4%;
       bottom: 32px;
@@ -62,7 +63,7 @@
       &__text{
         font-size: 18px;
         display: block;
-        color: #fff;
+        color: $fc-w;
         margin-bottom: 5px;
       }
       
