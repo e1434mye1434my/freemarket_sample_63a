@@ -24,8 +24,4 @@
 .byebug_history
 .DS_Store
 # Ignore master key for decrypting credentials and more.
-<<<<<<< HEAD
 /config/master.key
-=======
-/config/master.key
->>>>>>> parent of 31187f8... product_ditail
