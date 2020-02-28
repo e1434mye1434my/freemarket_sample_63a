@@ -18,9 +18,11 @@
         float: left;
         &--link{
           color: $dark;
-        }
-        .fa{
-          font: normal;
+          .fa{
+            font: normal;
+            font-size: inherit;
+            color: $bluegreen;
+          }
         }
       }
     }
@@ -183,10 +185,5 @@
         }
       }
     }
-  }
-
-  .fa{
-    font-size: inherit;
-    color: $bluegreen;
   }
 }

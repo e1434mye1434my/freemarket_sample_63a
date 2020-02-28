@@ -2,8 +2,7 @@
   .headerInner
     .mainHeader
       %h1.icon
-        %a{:href => "#"}
-          = image_tag 'logo.png', class: 'logo'
+        = link_to image_tag('logo.png', class: 'logo'), '#'
       .searchBox
         %form.search{"accept-charset" => "UTF-8", :action => "#", :method => "GET"}
           %input#searchInput.search__input{:name => "key", :placeholder => "キーワードから探す"}/
@@ -13,11 +12,11 @@
     .nav
       %ul.listLeft
         %li
-          %a.listLeft--first{:href => "#"} カテゴリー
+          = link_to 'カテゴリー', '#', class: "listLeft--first"
         %li
-          %a.listLeft--second{:href => "#"} ブランド
+          = link_to 'ブランド', '#', class: "listLeft--second"
       %ul.listRight
         %li
-          %a.listRight__item{:href => "#"} ログイン
+          = link_to 'ログイン', '#', class: "listRight__item"
         %li
-          %a.listRight__item{:href => "#"} 新規会員登録
+          = link_to '新規会員登録', '#', class: "listRight__item"
