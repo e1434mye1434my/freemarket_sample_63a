@@ -10,8 +10,8 @@
 |password|string|null: false|
 |first_name|string|null: false|
 |last_name|string|null: false|
-|first_furigana|string|
-|last_furigana|string|
+|first_Furigana|string|
+|last_Furigana|string|
 |birth_year|integer|null: false|
 |birth_month|integer|null: false|
 |birth_day|integer|null: false|
