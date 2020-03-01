@@ -18,6 +18,9 @@
         float: left;
         &--link{
           color: $dark;
+          &:hover{
+            color: $bluegreen;
+          }
           .fa{
             font: normal;
             font-size: inherit;

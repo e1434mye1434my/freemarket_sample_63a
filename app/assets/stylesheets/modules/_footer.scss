@@ -1,6 +1,8 @@
 @charset "UTF-8";
 @import 'config/variable';
 *{
+  box-sizing: border-box;
+  text-decoration: none;
   .footer{
     padding: 60px 0; 
     background-color: #272727;
@@ -28,6 +30,9 @@
             color: $fc-w;
             font-size: 12px;
             line-height: 32px;
+            &:hover{
+              text-decoration: underline;
+            }
           }
         }
       }

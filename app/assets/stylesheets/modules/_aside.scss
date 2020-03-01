@@ -1,6 +1,8 @@
 @charset "UTF-8";
 @import 'config/variable';
 *{
+  box-sizing: border-box;
+  text-decoration: none;
   .aside{
     background-image: url(bg-appBanner-pict.jpg);
     padding: 100px 40px;

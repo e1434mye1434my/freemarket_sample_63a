@@ -69,6 +69,9 @@
           color: $dark;
           line-height: 38px;
           padding: 0 30px 0 0;
+          &:hover{
+            color: #ffb340;
+          }
         }
         
         &--second{
@@ -76,6 +79,9 @@
           display: flex;
           line-height: 38px;
           padding: 0 0 0 16px;
+          &:hover{
+            color: #ffb340;
+          }
         }
       }
       
