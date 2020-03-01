@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'messages/index'
+  get 'messages/upp'
+  root "messages#index"
+  resources :messages, only: [:edit, :update]
 end

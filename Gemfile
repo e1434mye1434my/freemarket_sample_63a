@@ -66,3 +66,5 @@ group :production do
 end
 
 gem 'haml-rails'
+
+gem "font-awesome-sass"
