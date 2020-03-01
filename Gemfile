@@ -74,4 +74,6 @@ gem 'haml-rails'
 gem 'fog-aws'
 gem 'carrierwave'
 gem 'mini_magick'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+gem 'devise'
+gem 'ancestry'
