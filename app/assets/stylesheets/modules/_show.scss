@@ -93,12 +93,18 @@
                   border: solid 1px #ffb340;
                   border-radius: 40px;
                   color: $bluegreen;
+                  &:hover{
+                    opacity: 0.5;
+                  }
                 }
               .optional{
                 &__btn{
                   padding: 6px 10px;
                   border: solid 1px;
                   border-radius: 4px;
+                  &:hover{
+                    opacity: 0.5;
+                  }
                   &--text{
                     color: #333;
                     font-size: 14px;

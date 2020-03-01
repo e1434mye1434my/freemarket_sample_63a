@@ -30,6 +30,9 @@
           margin-right: 10px;
           .linkIcon{
             width: 180px;
+            &:hover{
+              opacity: 0.5;
+            }
           }        
         }
       }
