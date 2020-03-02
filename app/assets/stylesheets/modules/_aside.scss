@@ -1,0 +1,41 @@
+@charset "UTF-8";
+@import 'config/variable';
+*{
+  box-sizing: border-box;
+  text-decoration: none;
+  .aside{
+    background-image: url(bg-appBanner-pict.jpg);
+    padding: 100px 40px;
+    background-size: cover;
+    background-position: center;
+    .inner{
+      color: $fc-w;
+      text-align: center;
+      &__title{
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 1.4;
+      }
+      &__text{
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+        font-size: 35px;
+      }
+      &__icon{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 20px auto 0;
+        &--app{
+          margin-right: 10px;
+          .linkIcon{
+            width: 180px;
+            &:hover{
+              opacity: 0.5;
+            }
+          }        
+        }
+      }
+    }
+  }
+}
