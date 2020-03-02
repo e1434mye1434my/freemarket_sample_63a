@@ -1,0 +1,89 @@
+= render 'layouts/header'
+= render 'layouts/bread_crumbs'
+%main.main
+  .firstBox
+    .secondBox
+      .topBox
+        .itemBox
+          %h1.itemBox__name Product
+          .itemBox__body
+            %ul.itemBox__body--img
+              %li
+                = image_tag 'burger-4215450_640.jpg', size: "560x352"
+              %ul.imgs
+                %li.imgs__list
+                  = image_tag 'burger-4215450_640.jpg', size: "140x87"
+                %li.imgs__list
+                  = image_tag 'hamburger-1281855_640.jpg', size: "140x87"
+                %li.imgs__list
+                  = image_tag 'burger-2762371_640.jpg', size: "140x87"
+          .itemBox__price
+            %span ¥10000
+            .itemBox__price--tax
+              %span (税込)
+              %span 送料込み
+          .itemBox__detail product
+          .table
+            %table
+              %tr
+                %th 出品者
+                %td hoge
+              %tr
+                %th カテゴリー
+                %td
+                  = link_to 'レディース', '#', class: "table__link"
+                  %br>/
+                  = link_to 'トップス', '#', class: "table__link"
+                  %br>/
+                  = link_to 'Tシャツ/カットソー', '#', class: "table__link"
+              %tr
+                %th ブランド
+                %td
+              %tr
+                %th 商品のサイズ
+                %td
+              %tr
+                %th 商品の状態
+                %td 新品/未使用
+              %tr
+                %th 配送料の負担
+                %td 送料込み(出品者負担)
+              %tr
+                %th 発送元の地域
+                %td
+                  = link_to '青森県', '#', class: "table__link"
+              %tr
+                %th 発送日の目安
+                %td 1-2日で発送
+          .optionalArea
+            %ul
+              %li.likeBtn.fa.fa-star
+                お気に入り 0
+            %ul.optinal
+              %li.optional__btn
+                = link_to '#', class: "optional__btn--text" do
+                  %i.fa.fa-flag
+                  不適切な商品の通報
+        .buttonBox
+          %form{:action => "#", :method => "POST"}
+            %input{:name => "userid", :type => "hidden", :value => "#"}
+            %textarea#textarea.textarea{:cols => "50", :name => "textarea", :required => "", :rows => "5"}
+            %p.text
+              相手のことを考え丁寧なコメントを心がけましょう。
+              %br>/
+              不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            %button.commentBtn.fa.fa-comment{:name => "button", :type => "submit"}
+              コメントする
+      %ul.links
+        %li
+          = link_to '#', class: "links__etc" do
+            %i.fa.fa-angle-left
+            前の商品
+        %li
+          = link_to '#', class: "links__etc " do
+            後ろの商品
+            %i.fa.fa-angle-right
+      .relatedItem
+        = link_to 'レディースをもっと見る', '#', class: "relatedItem__etc"
+= render 'layouts/aside'
+= render 'layouts/footer'
