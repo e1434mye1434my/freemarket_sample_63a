@@ -1,0 +1,11 @@
+%body
+  .temporary-header
+    仮置きヘッダー
+  .temporary-breadcrumb
+    仮置きパンくず
+  .mypage-main-container.clearfix
+    = render "side_menu"
+    .mypage-content
+      .logout-container
+        = link_to "#", method: :delete, class: "logout-container__inner" do
+          %button.logout-container__inner-btn ログアウト
