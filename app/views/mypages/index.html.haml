@@ -1,8 +1,6 @@
-%body
-  .temporary-header
-    仮置きヘッダー
-  .temporary-breadcrumb
-    仮置きパンくず
+= render "layouts/header"
+= render "layouts/bread_crumbs"
+.wrapper
   .mypage-main-container.clearfix
     = render "side_menu"
     .mypage-content
@@ -47,4 +45,5 @@
               取引中の商品がありません
             %li.panel-purchase
               過去の取引がありません
+  = render "layouts/footer"
   = render "exhibition_btn"
