@@ -4,7 +4,7 @@
   box-sizing: border-box;
   text-decoration: none;
   .aside{
-    background-image: url(/app/assets/images/bg-appBanner-pict.jpg);
+    background-image: url(image-path("bg-appBanner-pict.jpg"));
     padding: 100px 40px;
     background-size: cover;
     background-position: center;
