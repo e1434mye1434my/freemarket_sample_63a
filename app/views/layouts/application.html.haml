@@ -1,11 +1,16 @@
 !!!
-%html
+%html{lang: "ja"}
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title FreemarketSample63a
+    %meta{:content => "authenticity_token", :name => "csrf-param"}/
+    %meta{:content => "a1JY4w5DOQiKHVHNIaPZEcOywpb0Z4WbJSVDIboP8OKd5Wz/jTGMxPpo1nGpXxHtBivawRnEK3VPMzHE+fSQ0g==", :name => "csrf-token"}/
+    %link{"data-turbolinks-track" => "reload", :href => "/assets/stylesheets/", :media => "all", :rel => "stylesheet"}/
+    %script{"data-turbolinks-track" => "reload", :src => "/assets/application-26d056ac003f4e4f9d1ad389ac9e51f4f59d6236cc12a75b4ca86167f653c860.js"}
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    -# %noscript
     = yield
