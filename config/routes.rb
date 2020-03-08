@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :toppage, only: [:index]
+  get 'toppage/index'
   get 'messages/index'
   get 'messages/upp'
   root to: 'kari#index'
