@@ -1,0 +1,58 @@
+= render "layouts/header"
+= render "layouts/bread_crumbs"
+.wrapper
+  .mypage-main-container.clearfix
+    = render "mypages/side_menu"
+    .mypage-content
+      .card-container
+        %h2.card-container__header
+          クレジットカード情報入力
+        = form_with url: root_path, class: 'card-container__inner card-container__inner-registration' do |f|
+          .card-form
+            .card-form__field
+              %label.card-form__field-label カード番号
+              %span.require 必須
+              %input.cardnum.input-default{type: 'text', placeholder: '半角英数字のみ'}
+              .card-form__field-list
+                %li 
+                  = image_tag 'visa.svg', size: '49x20'
+                %li 
+                  = image_tag 'master-card.svg', size: '34x20'
+                %li 
+                  = image_tag 'saison-card.svg', size: '30x20'
+                %li 
+                  = image_tag 'jcb.svg', size: '32x20'
+                %li 
+                  = image_tag 'american_express.svg', size: '21x20'
+                %li 
+                  = image_tag 'dinersclub.svg', size: '32x20'
+                %li 
+                  = image_tag 'discover.svg', size: '32x20'
+            .card-form__field.form-wrapper
+              %label.card-form__field-label 有効期限
+              %span.require 必須
+              %br
+              .select-field__select-wrapper
+                = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]], {}, {class: 'form-expire select-default'}
+                %i.fas.fa-chevron-down
+                %span.card-form__field-text 月
+              .select-field__select-wrapper
+                = f.select :exp_year, [["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029],["30",2030]], {}, {class: 'form-expire select-default'}
+                %i.fas.fa-chevron-down
+                %span.card-form__field-text 年
+            .card-form__field.form-wrapper
+              %label.card-form__field-label セキュリティコード
+              %span.require 必須
+              %input.cvcnum.input-default{type: 'number', placeholder: 'カード背面4桁もしくは3桁の番号'}
+              .cvcnum-text
+                %span.cvcnum-text__question
+                  ?
+                カード裏面の番号とは？
+                .cvcnum-text__info.is-show
+                  カードの裏面をご覧ください
+                  %br
+                  = image_tag 'seq-card.png',size: '240x105'
+            = f.submit '追加する', class: 'card-form__btn'
+  = render "layouts/footer"
+  = render "mypages/exhibition_btn"
+
