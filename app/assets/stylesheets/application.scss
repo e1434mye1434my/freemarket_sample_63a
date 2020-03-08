@@ -1,5 +1,13 @@
-@import "reset";
 @import "modules/toppage";
-@import 'font-awesome-sprockets';
-@import "font-awesome"
+@import "modules/main.scss";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "modules/upp.scss";
+@import "./modules/orders";
+@import "./modules/aside";
+@import "./modules/footer";
+@import "./modules/header";
+@import "./modules/bread_crumbs";
+@import "./modules/show";
+@import "./reset";
 
