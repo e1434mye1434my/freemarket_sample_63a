@@ -20,7 +20,7 @@
 |municipality|string|null: false|
 |house_number|string|null: false|
 |tel|integer|unique|
-|icon|stirng||
+|icon|stirng|
 |buyed_items|references|foreign_key: true|
 |saling_items|references|foreign_key: true|
 |sold_items|references|foreign_key: true|

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  # get 'cards/new'
-  # get 'cards/show'
+  get 'messages/index'
+  get 'messages/upp'
   root to: 'kari#index'
   get 'orders/new'
   get 'products/show'
