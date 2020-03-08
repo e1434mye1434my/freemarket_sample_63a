@@ -10,9 +10,9 @@
         %br/
         フリマアプリです
         .content__btn
-          %a.aBtn{:href => "#"}
+          = link_to "#", class: "aBtn" do
             = image_tag "app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg", class: "APP"
-          %a.gBtn{:href => "#"}
+          = link_to "#", class: "gBtn" do
             = image_tag "google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg", class: "GOOGLE"
     .picture
   %section.topIntroduction
@@ -22,7 +22,7 @@
       %li.list
         .list__pict
           %span.number 1
-          %img{:src => "/assets/pict-reason-01.jpg"}/
+          = image_tag "pict-reason-01.jpg"
         %h3.list__text
           %span 3分
           ですぐに出品
@@ -31,7 +31,7 @@
       %li.list
         .list__pict
           %span.number 2
-          %img{:src => "/assets/pict-reason-02.jpg"}/
+          = image_tag "pict-reason-02.jpg"
         %h3.list__text
           %span シンプル
           で使いやすい
@@ -40,7 +40,7 @@
       %li.list.list--last
         .list__pict
           %span.number 3
-          %img{:src => "/assets/pict-reason-03.jpg"}/
+          = image_tag "pict-reason-03.jpg"
         %h3.list__text 
           手数料
           %span 業界最安
@@ -56,9 +56,9 @@
         %br/
         ほしかったあの商品に出会えるかも知れません。
       .btn
-        %a.aBtn{:href => "#"}
+        = link_to "#", class: "aBtn" do
           = image_tag "app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg", class: "APP"
-        %a.gBtn{:href => "#"}
+        = link_to "#", class: "gBtn" do
           = image_tag "google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg", class: "GOOGLE"
   %section.topKeyFeatures
     %h2.head
@@ -66,21 +66,21 @@
     .items
       %section.item
         %figure.item__img
-          %img{:src => "/assets/icon-01.png"}/
+          = image_tag "icon-01.png"
         %h3.item__subtitle
           簡単に売り買いできる
         %p.item__detail
           スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
       %section.item
         %figure.item__img
-          %img{:src => "/assets/icon-03.png"}/
+          = image_tag "icon-03.png"
         %h3.item__subtitle
           売上金は即日振込みに対応
         %p.item__detail
           午前9時までに振込み依頼いただければ、翌日に指定の口座に入金いたします！
       %section.item
         %figure.item__img
-          %img{:src => "/assets/icon-04.png"}/
+          = image_tag "icon-04.png"
         %h3.item__subtitle
           様々な支払いに対応
         %p.item__detail
@@ -94,7 +94,7 @@
         .productList
           = link_to 'products/3' do
             %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", height: '150px;', width: '220px;'
             .productList--body
               %h3.name product3
               .details
@@ -107,7 +107,7 @@
         .productList
           = link_to  'products/2' do
             %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"}/
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", height: '150px;', width: '220px;'
             .productList--body
               %h3.name product2
               .details
@@ -120,7 +120,7 @@
         .productList
           = link_to'products/1' do
             %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}/
+              = image_tag  "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png", height: '150px;', width: '220px;'
             .productList--body
               %h3.name product1
               .details
@@ -139,7 +139,7 @@
         .productList
           = link_to "products/3" do
             %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", height: '150px;', width: '220px;'
             .productList--body
               %h3.name product3
               .details
@@ -152,20 +152,20 @@
         .productList
           = link_to "products/2" do
             %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"}/
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", height: '150px;', width: '220px;'
             .productList--body
               %h3.name product2
               .details
                 %ul
                   %li 20000円
                   %li
-                    = icon('fas', 'star', class: 'linkicon')
+                    = icon('fa', 'star', class: 'linkicon')
                     0
                 %p (税込)
         .productList
           = link_to "products/1" do
             %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}/
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png", height: '150px;', width: '220px;'
             .productList--body
               %h3.name product1
               .details
