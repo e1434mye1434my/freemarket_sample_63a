@@ -79,3 +79,4 @@ gem 'devise'
 gem 'ancestry'
 gem 'jquery-rails'
 
+
