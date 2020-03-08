@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  # get 'cards/new'
-  # get 'cards/show'
   root to: 'kari#index'
   get 'orders/new'
   get 'products/show'
@@ -14,7 +12,6 @@ Rails.application.routes.draw do
 
   resources :mypages, only: [:index] do
     collection do
-      # get '/', to: "mypages#index"
       get 'logout', to: 'mypages#logout'
     end
   end
