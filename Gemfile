@@ -71,6 +71,7 @@ group :production do
 end
 
 gem 'haml-rails'
+gem "font-awesome-sass"
 gem 'fog-aws'
 gem 'carrierwave'
 gem 'mini_magick'
