@@ -1,146 +1,6 @@
 * {
   box-sizing: border-box;
 }
-
-.pcHeader {
-  padding: 0 60px;
-  .headerInner {
-    max-width: 1040px;
-    width: 100%;
-    min-height: 82px;
-    margin: 0 auto;
-    padding: 15px 0 0;
-    .mainHeader {
-      position: relative;
-      display: flex;
-      align-items: center;
-      .icon {
-        padding-bottom: 10px;
-        margin-right: 30px;
-        border-radius: 4px;
-        font-size: 100%;
-        font-weight: normal;
-        a {
-          width: 140px;
-          display: block;
-          .FURIMA {
-            width: 100%;
-            vertical-align: bottom;
-          }
-        }
-      }
-      .searchBox {
-        margin-left: auto;
-        width: 100%;
-        from {
-          width: 100%;
-          display: flex;
-          margin-bottom: 5px;
-          input {
-            width: calc(100% - 26px);
-            height: 36px;
-            padding: 0 0 0 5px;
-          }
-        }
-      }
-    }
-  }
-}
-
-button {
-  width: 36px;
-  border: 0;
-  cursor: pointer;
-  background-color: #3CCACE;
-  padding: 8px;
-  img {
-    width: 100%;
-    vertical-align: bottom;
-  }
-}
-
-.nav {
-  font-size: 14px;
-  display: flex;
-  margin-bottom: 10px;
-  .listsLeft {
-    position: relative;
-    display: flex;
-    &__item {
-      display: flex;
-      line-height: 38px;
-      padding: 0 0 0 16px;
-      }
-      &--first {
-        text-decoration: none;
-        padding: 0;
-      }
-        a {
-          color: #333;
-          text-decoration: none;
-          line-height: 32px;
-          background-position: center right;
-          background-repeat: no-repeat;
-          background-size: 18px;
-          padding-right: 30px;
-          >a {
-            background-image: url("/assets/icon_category.png");
-          }
-          &:hover{
-          color: #ffb340;
-  }
-}
-//     &__item {
-//     display: flex;
-//     line-height: 38px;
-//     padding: 0 0 0 16px;
-// }
-      &--first {
-        text-decoration: none;
-        padding: 0;
-    }
-  }
-  .listsRight{
-    margin-left: auto;
-    display: flex;
-    &__item {
-      color: #333;
-      line-height: 38px;
-      padding: 0 0 0 16px;
-      a {
-        display: flex;
-        align-items: center;
-        color: #333;
-        text-decoration: none;
-        line-height: 32px;
-      }
-    }
-  }
-}
-
-
-.displayNone {
-  display: none;
-}
-
-.tree {
-  z-index: 2;
-  position: absolute;
-  background-color: #fff;
-  width: 240px;
-  top: 40px;
-  .categoryTree {
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    li {
-      position: relative;
-    }
-  }
-}
-              // ↑header部分のCSS↑
-
 .main {
   background: #f8f8f8;
   .mainVisual {
@@ -181,6 +41,7 @@ button {
       }
     }
   }
+
   .topMiddleDl {
     background-image: url("/assets/bg-topMiddleDl-pict.jpg");
     background-position: bottom right;
@@ -210,6 +71,7 @@ button {
       }
     }
   }
+
   .topKeyFeatures {
     padding: 60px 100px;
     background-color: #fff;
@@ -263,6 +125,7 @@ button {
       }
     }
   }
+
   .pickupContainer {
     padding: 80px 0 0;
     background-color: #f8f8f8;
@@ -275,16 +138,15 @@ button {
     }
   }
 }
+
 .productBox {
   .productHead {
     text-align: center;
-    a {
+    .title {
       font-size: 24px;
       text-decoration: none;
       color: #3CCACE;
-      h3 {
-        font-weight: bold;
-      }
+      font-weight: bold;
     }
   }
   .productLists {

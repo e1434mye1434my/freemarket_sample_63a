@@ -1,61 +1,4 @@
-
-%header.pcHeader
-  .headerInner
-    .mainHeader
-      %h1.icon
-        %a{:href => "/"}
-          %img{:src => "/assets/logo.png", :class => "FURIMA",}/
-      .searchBox
-        %from{:action => "#", "accept-charset" => "UTF-8", "method" => "get"}
-          %input{:name => "utf-8", :type => "hidden" , :value => "✓"}
-          %input#searchInput.searchBox--input{:name => "key", :placeholder => "キーワードから探す"}/
-          %button{:type => "submit"}
-            .seachBox__icon
-              %img{:src => "/assets/icon-search 1.png"}/
-            %input{:name => "authenticity_token", :type => "hidden", :valuev => "#"}
-      %ul.resultLists
-    .nav
-      %ul.listsLeft
-        %li.listsLeft__item.listsLeft__item--first
-          %a#idcatBtn{:hlef => "#"}カテゴリー
-          .tree.displayNone
-            %ul.categoryTree
-              %li.cattegoryTree--item
-                %a#1{:href => "#"}レディース
-              %li.cattegoryTree--item
-                %a#2{:href => "#"}メンズ
-              %li.cattegoryTree--item
-                %a#3{:href => "#"}ベビー・キッズ
-              %li.cattegoryTree--item
-                %a#4{:href => "#"}インテリア・住まい・小物
-              %li.cattegoryTree--item
-                %a#5{:href => "#"}本・音楽・ゲーム
-              %li.cattegoryTree--item
-                %a#6{:href => "#"}おもちゃ・ホビー・グッズ
-              %li.cattegoryTree--item
-                %a#7{:href => "#"}コスメ・香水・美容
-              %li.cattegoryTree--item
-                %a#8{:href => "#"}家電・スマホ・カメラ
-              %li.cattegoryTree--item
-                %a#9{:href => "#"}スポーツ・レジャー
-              %li.cattegoryTree--item
-                %a#10{:href => "#"}ハンドメイド
-              %li.cattegoryTree--item
-                %a#11{:href => "#"}チケット
-              %li.cattegoryTree--item
-                %a#12{:href => "#"}自動車・オートバイ
-              %li.cattegoryTree--item
-                %a#13{:href => "#"}その他
-          %li.listsLeft__item
-            %a#brandBtn{:href => "#"}ブランド
-            .brandsPulldown.displayNone
-      %ul.listsRight
-        %li.listsRight__item.listsRight__item--login
-          %a{:href => "#"}ログイン
-        %li.listsRight__item.listsRight__item--new
-          %a{:href => "#"}新規会員登録
-          -# ↑header部分まで↑
-
+= render"layouts/header"
 .main
   %section.mainVisual
     .content
@@ -146,11 +89,10 @@
     %h2.head ピックアップカテゴリー
     .productBox
       .productHead
-        %a{:href => "#"}
-          %h3.title 新規投稿商品
+        = link_to "新規投稿商品", "#", class: "title"
       .productLists
         .productList
-          %a{:href => "/products/3"}
+          = link_to 'products/3' do
             %figure.productList--img
               %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
             .productList--body
@@ -163,7 +105,7 @@
                     0
                 %p (税込)
         .productList
-          %a{:href => "/products/2"}
+          = link_to  'products/2' do
             %figure.productList--img
               %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"}/
             .productList--body
@@ -176,7 +118,7 @@
                     0
                 %p (税込)
         .productList
-          %a{:href => "/products/1"}
+          = link_to'products/1' do
             %figure.productList--img
               %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}/
             .productList--body
@@ -192,11 +134,10 @@
     %h2.head ピックアップブランド
     .productBox
       .productHead
-        %a{:href => "#"}
-          %h3.title アーカイバ
+        = link_to "アーカイバ", "#", class: "title"
       .productLists
         .productList
-          %a{:href => "/products/3"}
+          = link_to "products/3" do
             %figure.productList--img
               %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
             .productList--body
@@ -209,7 +150,7 @@
                     0
                 %p (税込)
         .productList
-          %a{:href => "/products/2"}
+          = link_to "products/2" do
             %figure.productList--img
               %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"}/
             .productList--body
@@ -222,7 +163,7 @@
                     0
                 %p (税込)
         .productList
-          %a{:href => "/products/1"}
+          = link_to "products/1" do
             %figure.productList--img
               %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}/
             .productList--body
