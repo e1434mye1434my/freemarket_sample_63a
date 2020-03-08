@@ -75,7 +75,8 @@ gem "font-awesome-sass"
 gem 'fog-aws'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'font-awesome-rails'
 gem 'devise'
 gem 'ancestry'
+gem 'jquery-rails'
+
 
