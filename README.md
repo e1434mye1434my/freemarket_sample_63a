@@ -21,64 +21,61 @@
 |house_number|string|null: false|
 |tel|integer|unique|
 |icon|stirng|
-|buyed_items|references|foreign_key: true|
-|saling_items|references|foreign_key: true|
-|sold_items|references|foreign_key: true|
+|buyed_products|references|foreign_key: true|
+|saling_products|references|foreign_key: true|
+|sold_products|references|foreign_key: true|
  
 ### Association
 - has_many :comments
 - has_many :evaluations
 - has_many :credit_cards
 - has_many :likes, dependent: :destroy
-- has_many :itmes_users
-- has_many :items, through: :items_users
-- has_many :liked_items, through: :likes, source: :items
-- has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
-- has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name: "Item"
-- has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Item"
+- has_many :products_users
+- has_many :products, through: :products_users
+- has_many :liked_products, through: :likes, source: :products
+- has_many :buyed_products, foreign_key: "buyer_id", class_name: "Product"
+- has_many :saling_products, -> { where("buyer_id is NULL") }, foreign_key: "saler_id", class_name: "Product"
+- has_many :sold_productss, -> { where("buyer_id is not NULL") }, foreign_key: "saler_id", class_name: "Product"
 ## commentテーブル
 |Column|Type|Options|index|
 |------|----|-------|-----|
 |comment|text|
 |user_id|references|null: false, foreign_key: true|○|
-|item_id|references|null: false, foreign_key: true|○|
+|product_id|references|null: false, foreign_key: true|○|
  
 ### Association
 - belongs_to :user
-- belongs_to :item
+- belongs_to :product
  
-## items_usersテーブル
+## products_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
+|product_id|references|null: false, foreign_key: true|
  
 ### Association
-- belongs_to :item
+- belongs_to :product
 - belongs_to :user
  
 ## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|foreign_key: true|
-|item_id|references|foreign_key: true|
+|product_id|references|foreign_key: true|
  
 ### Association
-- belongs_to :item
+- belongs_to :product
 - belongs_to :user
  
-## itemsテーブル
+## Productsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
+|name|sting|null: false|
 |stock|integer|null: false|
 |price|integer|null: false|
 |condition|string|null: false|
 |size|string|null: false|
-|shippsing_charges|stirng|null: false|
-|shipping_method|string|null: false|
-|shipping_area|string|null: false|
-|estimated_shipping_fee|string|null: false|
 |introduction|text|null: false|
 |sales_status|string|null: false|
 |saler_id|references|null: false, foreign_key: true|
@@ -91,8 +88,8 @@
 - belongs_to :saler, class_name: "User"
 - belongs_to :buyer, class_name: "User"
 - has_many :comments
-- has_many :item_categories
-- has_many :categories, through: :item_categories
+- has_many :product_categories
+- has_many :categories, through: :product_categories
 - has_many :likes, dependent: :destroy
 - has_many :liked_users, through: :likes, source: :user
 
@@ -100,7 +97,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|item_id|references|foreign_key: true|
+|product_id|references|foreign_key: true|
 |burden|string|null: false|
 |method|string|null: false|
 |area||string|null: false|
@@ -108,7 +105,7 @@
 
 ###  Association
 - belongs_to :user
-- belongs_to :item
+- belongs_to :product
  
 ## categoriesテーブル
 |Column|Type|Options|
@@ -117,7 +114,7 @@
 |ancestry|string|index: true|
 
 ### Association
-- has_many :items
+- has_many :products
 - has_ancestry
  
  
@@ -125,12 +122,12 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
+|products_id|references|null: false, foreign_key: true|
 |comment|text|
  
 ### Association
 - belongs_to :user
-- belongs_to :item
+- belongs_to :product
  
  
 ## credit_cardテーブル
