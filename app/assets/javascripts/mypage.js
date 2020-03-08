@@ -38,3 +38,10 @@ $(function(){
      $('.logout-container__inner-btn').css('border-color',"#696969");
    });
  });
+
+ // toggle 画像表示
+ $(function(){
+   $('.cvcnum-text').click(function(){
+     $('.is-show').toggle();
+   });
+ });
