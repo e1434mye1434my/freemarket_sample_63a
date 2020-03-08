@@ -4,13 +4,19 @@
 
 .itemphoto
   .itemphoto__box
-    .itemphoto__label
+    .itemphoto__box__label
       出品画像
     %span.tag
       必須
-    .itemphoto__content
+    .itemphoto__box__content
       最大10枚までアップロードできます
-    .itemphoto__pick
-      %input multiple type = "file" image_tag("icon_camera.png", class: "camera")
+    .itemphoto__box__select
+      = fields_for "#" do |f|
+        = f.file_field :image, class: "select_img_1", type: "file", name: "images[]"
 
 .itemSummary
+  .itemSummary__name
+    .itemSummary__name__label
+      商品名
+    .itemSummary__name__label
+
