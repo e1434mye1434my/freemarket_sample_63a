@@ -1,6 +1,7 @@
 body {
   position: relative;
   box-sizing: border-box;
+  min-height: 100%;
   margin: 0;
   padding: 0;
   font-family:   'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
@@ -8,6 +9,7 @@ body {
 .order-container {
   height: 100%;
   width: 100%;
+  background-color: #f5f5f5;
   padding: 0 0 220px;
   background-color: #f5f5f5;
 }
@@ -157,7 +159,6 @@ body {
 
 .footer-container {
   width: 456px;
-  height: 140px;
   margin: 0 auto;
   position: absolute;
   bottom: 0;

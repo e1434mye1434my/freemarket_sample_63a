@@ -1,7 +1,18 @@
+@import "modules/toppage";
+@import "modules/main.scss";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "modules/upp.scss";
 @import "./modules/orders";
 @import "./modules/aside";
 @import "./modules/footer";
 @import "./modules/header";
 @import "./modules/bread_crumbs";
 @import "./modules/show";
+@import "./modules/mypage";
+@import "./modules/side_menu";
+@import "./modules/logout";
+@import "./modules/cards_show";
+@import "./modules/cards_new";
 @import "./reset";
+

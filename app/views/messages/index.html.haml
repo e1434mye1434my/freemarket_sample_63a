@@ -1,0 +1,24 @@
+.main-bar
+  .login-header
+    %h.image
+      = image_tag "logo.png" , size: "160x100"
+    
+
+.login-contents
+  .login-contents__message
+    新規会員登録
+  = link_to "https://mail.google.com/mail/u/0/?tab=rm1#inbox/", class: "login-contents__btn--envelope" do
+    = icon('fas', 'envelope',class: "contents__btn--icon")
+    メールアドレスで登録する
+  = link_to "https://www.facebook.com/", class: "login-contents__btn--facebook" do
+    = icon('fab', 'facebook-square',class: "contents__btn--icon")
+    Facebookで登録する
+      
+  = link_to "https://google.com/", class: "login-contents__btn--google" do
+    = icon('fab', 'google',class: "login-contents__btn--icon")
+    Googleで登録する
+
+
+.login-footer
+  %h.image
+    = image_tag "logo.png" , size: "130x70"
