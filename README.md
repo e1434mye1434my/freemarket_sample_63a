@@ -20,11 +20,8 @@
 |municipality|string|null: false|
 |house_number|string|null: false|
 |tel|integer|unique|
-|icon|stirng|
-|buyed_products|references|foreign_key: true|
-|saling_products|references|foreign_key: true|
-|sold_products|references|foreign_key: true|
- 
+|icon|stirng||
+
 ### Association
 - has_many :comments
 - has_many :evaluations
@@ -39,7 +36,7 @@
 ## commentテーブル
 |Column|Type|Options|index|
 |------|----|-------|-----|
-|comment|text|
+|comment|text|||
 |user_id|references|null: false, foreign_key: true|○|
 |product_id|references|null: false, foreign_key: true|○|
  
@@ -78,8 +75,8 @@
 |size|string|null: false|
 |introduction|text|null: false|
 |sales_status|string|null: false|
-|saler_id|references|null: false, foreign_key: true|
-|buyer_id|references|null: false, foreign_key: true|
+|saler_id|integer||
+|buyer_id|integer||
 
 ###  Association
 - belongs_to :user
@@ -100,7 +97,7 @@
 |product_id|references|foreign_key: true|
 |burden|string|null: false|
 |method|string|null: false|
-|area||string|null: false|
+|area|string|null: false|
 |estimated|string|null: false|
 
 ###  Association
