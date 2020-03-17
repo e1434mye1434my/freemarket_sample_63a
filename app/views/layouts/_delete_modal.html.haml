@@ -1,0 +1,19 @@
+.delete-modal.dalete-js-modal
+  .delete-modal__bg.delete-js-modal__close
+  .delete-modal__content
+    .delete-modal__content-inner
+      %ib.delete-modal__content-inner-head 確認
+      %br/
+      削除すると二度と復活できません。
+      %br/
+      削除する代わりに停止することもできます。
+      %br/
+      %br/
+      本当に削除しますか？
+    .delete-modal__content-footer
+      .delete-modal__content-footer-btnCancel.delete-js-modal__close
+        %span キャンセル
+      .delete-modal__content-footer-btnSubmit
+        = link_to '削除する', "/products/#{@product.id}", method: :delete
+    
+        

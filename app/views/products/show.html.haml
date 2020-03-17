@@ -70,7 +70,8 @@
             = link_to '商品の編集', '#', class: "changeBox__editBtn"
             %p.changeBox__text
               or
-            = link_to 'この商品を削除する', "/products/#{@product.id}", method: :delete, class: "changeBox__deleteBtn", data: { confirm: '本当に削除しますか？'}
+            = link_to 'この商品を削除する', "", class: "changeBox__deleteBtn", id: "delete-js-modal__open"
+            = render "layouts/delete_modal"
         .buttonBox
           %form{:action => "#", :method => "POST"}
             %input{:name => "userid", :type => "hidden", :value => "#"}
