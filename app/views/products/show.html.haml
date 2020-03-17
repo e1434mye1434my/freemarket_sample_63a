@@ -5,7 +5,8 @@
     .secondBox
       .topBox
         .itemBox
-          %h1.itemBox__name Product
+          %h1.itemBox__name 
+            = @product.name
           .itemBox__body
             %ul.itemBox__body--img
               %li
@@ -64,6 +65,12 @@
                 = link_to '#', class: "optional__btn--text" do
                   %i.fa.fa-flag
                   不適切な商品の通報
+        - if user_signed_in? && @product.user_id == current_user.id
+          .changeBox
+            = link_to '商品の編集', '#', class: "changeBox__editBtn"
+            %p.changeBox__text
+              or
+            = link_to 'この商品を削除する', "/products/#{@product.id}", method: :delete, class: "changeBox__deleteBtn", data: { confirm: '本当に削除しますか？'}
         .buttonBox
           %form{:action => "#", :method => "POST"}
             %input{:name => "userid", :type => "hidden", :value => "#"}
