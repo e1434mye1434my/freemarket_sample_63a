@@ -28,12 +28,12 @@ ActiveRecord::Schema.define(version: 2020_03_20_151604) do
     t.string "size", null: false
     t.text "introduction", null: false
     t.string "sales_status", null: false
-    t.bigint "user_id"
     t.integer "saler_id"
     t.integer "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "category_id"
+    t.bigint "user_id"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
