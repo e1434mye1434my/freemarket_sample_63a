@@ -20,47 +20,6 @@
   )
 end
 
-Product.create!(
-  id: '1',
-  name: 'カメラ',
-  price: '15000',
-  stock: '1',
-  condition: '傷や汚れあり',
-  size: 'L',
-  introduction: '美品です',
-  sales_status: '販売中',
-  user_id: '1',
-  saler_id: "",
-  buyer_id: ""
-)
-
-Product.create!(
-  id: '2',
-  name: 'ハンバーガー',
-  price: '500',
-  stock: '1',
-  condition: '傷や汚れあり',
-  size: 'L',
-  introduction: '美品です',
-  sales_status: '販売中',
-  user_id: '1',
-  saler_id: "",
-  buyer_id: ""
-)
-
-Product.create!(
-  id: '3',
-  name: '掃除機',
-  price: '20000',
-  stock: '1',
-  condition: '傷や汚れあり',
-  size: 'L',
-  introduction: '美品です',
-  sales_status: '販売中',
-  user_id: '2',
-  saler_id: "",
-  buyer_id: ""
-)
 women_child_array = ['トップス','ジャケット/アウター','パンツ','スカート','ワンピース','靴','ルームウェア/パジャマ','レッグウェア','帽子','バッグ','アクセサリー','ヘアアクセサリー','小物','時計','ウィッグ/エクステ','浴衣/水着','スーツ/フォーマル/ドレス','マタニティ','その他']
 
 men_child_array = ['トップス','ジャケット/アウター','パンツ','靴','バッグ','スーツ','帽子','アクセサリー','小物','時計','水着','レッグウェア','アンダーウェア','その他']
@@ -217,3 +176,48 @@ other_child = Category.create(name: "その他")
       grandchild.children.create(name: grandchildren)
     end
   end
+
+  Product.create!(
+    id: '1',
+    name: 'カメラ',
+    price: '15000',
+    stock: '1',
+    condition: '傷や汚れあり',
+    size: 'L',
+    introduction: '美品です',
+    sales_status: '販売中',
+    user_id: '1',
+    saler_id: "",
+    buyer_id: "",
+    category_id: "1"
+  )
+  
+  Product.create!(
+    id: '2',
+    name: 'ハンバーガー',
+    price: '500',
+    stock: '1',
+    condition: '傷や汚れあり',
+    size: 'L',
+    introduction: '美品です',
+    sales_status: '販売中',
+    user_id: '1',
+    saler_id: "",
+    buyer_id: "",
+    category_id: "2"
+  )
+  
+  Product.create!(
+    id: '3',
+    name: '掃除機',
+    price: '20000',
+    stock: '1',
+    condition: '傷や汚れあり',
+    size: 'L',
+    introduction: '美品です',
+    sales_status: '販売中',
+    user_id: '2',
+    saler_id: "",
+    buyer_id: "",
+    category_id: "3"
+  )
