@@ -4,11 +4,11 @@ class ProductsController < ApplicationController
 
   
   def new
-    @product = current_user.products.build
+    @product = current_user.products.new
   end
 
   def create
-    @product = current_user.products.build(product_params)
+    @product = current_user.products.new(product_params)
   end
 
   def show

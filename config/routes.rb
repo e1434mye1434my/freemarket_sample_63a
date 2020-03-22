@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get 'messages/upp'
   root to: 'kari#index'
   get 'orders/new'
-  # get 'products/show'
   get 'mypages/index'
   resources :products, only: [:show, :destroy]
 
