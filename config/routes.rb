@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
-  
-  get 'toppage/index'
+  devise_for :users
+  root to: 'toppage#index'
   get 'messages/index'
   get 'messages/upp'
-  root to: 'kari#index'
   get 'orders/new'
-  get 'products/show'
   get 'mypages/index'
+  resources :products, only: [:show, :destroy]
 
   resources :cards, only: [:new, :show] do
     collection do
