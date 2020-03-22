@@ -114,6 +114,42 @@
             }
           }
 
+          .changeBox {
+            margin: 24px 0;
+            background-color: #fff;
+            padding: 8px 16px;
+            &__editBtn {
+              display: block;
+              margin: 16px 0;
+              text-align: center;
+              width: 100%;
+              line-height: 48px;
+              font-size: 14px;
+              background-color: $base_bgc;
+              border: 1px solid $base_bgc;
+              color: #fff;
+              text-decoration: none;
+              cursor: pointer;
+            }
+            &__text {
+              font-size: 16px;
+              text-align: center;
+            }
+            &__deleteBtn {
+              display: block;
+              margin: 16px 0;
+              text-align: center;
+              width: 100%;
+              line-height: 48px;
+              font-size: 14px;
+              background-color: #aaa;
+              border: 1px solid #aaa;
+              color: #fff;
+              text-decoration: none;
+              cursor: pointer;
+            }
+          }
+
           .buttonBox{
             text-align: center;
             padding: 24px;

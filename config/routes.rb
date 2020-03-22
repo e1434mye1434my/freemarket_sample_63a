@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'messages/upp'
   get 'orders/new'
   get 'mypages/index'
-  resources :products, only: [:show]
+  resources :products, only: [:show, :destroy]
 
   resources :cards, only: [:new, :show] do
     collection do
