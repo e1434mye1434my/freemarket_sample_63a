@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'toppage/index'
+  root to: 'toppage#index'
   get 'messages/index'
   get 'messages/upp'
-  root to: 'kari#index'
   get 'orders/new'
   get 'mypages/index'
   resources :products, only: [:show, :destroy]

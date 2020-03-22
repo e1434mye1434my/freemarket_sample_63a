@@ -78,5 +78,3 @@ gem 'mini_magick'
 gem 'devise'
 gem 'ancestry'
 gem 'jquery-rails'
-
-
