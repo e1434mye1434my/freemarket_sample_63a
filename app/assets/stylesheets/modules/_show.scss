@@ -16,7 +16,7 @@
           margin: 0;
           .itemBox{
             padding: 24px 40px 40px;
-            background-color: $fc-w;
+            background-color: $base_color;
             &__name{
               width: 100%;
               font-size: 24px;
@@ -77,7 +77,7 @@
                     width: 70%;
                     border: 1px solid #dedede;
                     .table__link{
-                      color: $bluegreen;
+                      color: $base_bgc;
                     }
                   }
                 }
@@ -92,7 +92,7 @@
                   padding: 10px;
                   border: solid 1px #ffb340;
                   border-radius: 40px;
-                  color: $bluegreen;
+                  color: $base_bgc;
                   &:hover{
                     opacity: 0.5;
                   }
@@ -118,7 +118,7 @@
             text-align: center;
             padding: 24px;
             margin: 10px 0;
-            background-color:$fc-w;
+            background-color:$base_color;
             .textarea{
               padding: 10px;
               width: 100%;
@@ -135,9 +135,9 @@
         
             .commentBtn{
               font-size: 17px;
-              border: solid 1px $bluegreen;
-              background: $bluegreen;
-              color: $fc-w;
+              border: solid 1px $base_bgc;
+              background: $base_bgc;
+              color: $base_color;
               width: 60%;
               line-height: 48px;
               border-radius: 100px;
@@ -149,7 +149,7 @@
           display: flex;
           justify-content: space-between;
           &__etc{
-            color: $bluegreen;
+            color: $base_bgc;
           }
         }
         
@@ -157,7 +157,7 @@
           margin: 24px 0 8px;
           font-size: 22px;
           &__etc{
-            color: $bluegreen;
+            color: $base_bgc;
           }
         }
       }
