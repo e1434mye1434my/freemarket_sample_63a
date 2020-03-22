@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   get 'toppage/index'
   get 'messages/index'
   get 'messages/upp'
