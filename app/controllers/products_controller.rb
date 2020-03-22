@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-
+  before_action :set_product, only: [:show, :destroy]
 
 
   
@@ -12,11 +12,9 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
   end
   
   def destroy
-    @product = Product.find(params[:id])
     if @product.destroy
       redirect_to mypages_index_path, flash: { notice: "商品を削除しました"}
     else
@@ -29,6 +27,10 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :price, :stock, :condition, :size, :introduction, :sales_status)
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 end
 
