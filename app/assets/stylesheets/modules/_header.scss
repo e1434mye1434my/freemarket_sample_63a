@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import 'config/variable';
+@import 'mixin/mixin';
 *{
   box-sizing: border-box;
   text-decoration: none;
@@ -42,7 +43,7 @@
               width: 36px;
               border: 0;
               cursor: pointer;
-              background: $bluegreen;
+              background: $base_bgc;
               padding: 8px;
               &__icon{
                 margin: 0;
@@ -65,15 +66,63 @@
       .listLeft{
         display: flex;
         position: relative;
-        &--first{
+        &--first__text{
           color: $dark;
           line-height: 38px;
           padding: 0 30px 0 0;
+          position: relative;
           &:hover{
-            color: #ffb340;
+            color: $hover_color;
           }
         }
         
+        .active{
+          display: block;
+        }
+
+        .category--list{
+          .parent--list{
+            display: none;
+            width: auto;
+            position: absolute;
+            z-index: 1;
+            .parent--category{
+              @include category;
+              .parent--text{
+                color: $dark;
+                &:hover{
+                  color: $hover_color;
+                }
+              }
+            }
+          }
+          .child--list{
+            @include categoryList;
+            .child--category{
+              @include category;
+              .child--text{
+                color: $dark;
+                &:hover{
+                  color: $hover_color;
+                }
+              }
+            }
+          }
+          .grandchild--list{
+            @include categoryList;
+            .grandchild--category{
+              @include category;
+              .grandchild--text{
+                color: $dark;
+                &:hover{
+                  color: $hover-color;
+                }
+              }
+            }
+          }
+        }
+
+
         &--second{
           color: $dark;
           display: flex;
@@ -96,5 +145,4 @@
       }
     }
   }
-  
 }

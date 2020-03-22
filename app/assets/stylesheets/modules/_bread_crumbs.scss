@@ -19,12 +19,12 @@
         &--link{
           color: $dark;
           &:hover{
-            color: $bluegreen;
+            color: $base_bgc;
           }
           .fa{
             font: normal;
             font-size: inherit;
-            color: $bluegreen;
+            color: $base_bgc;
           }
         }
       }
