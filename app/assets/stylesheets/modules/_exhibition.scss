@@ -43,23 +43,31 @@
         }
         &__select {
           margin-top: 16px;
-          align-content: center;
-          align-items: center;
           background-color: rgb(245, 245, 245);
-          height: 100%;
-          flex-wrap: wrap;
-          position: relative;
           border-width: 1px;
           border-style: dashed;
           border-color: rgb(204, 204, 204);
-          border-image: initial;
-          .select_img_1 {
-            display: none;
-            margin: 0 auto;
-          }
-          &__form {
-            margin: 0 auto;
-            &__text {
+          height: 150px;
+          padding: 0;
+          cursor: pointer;
+          &__1 {
+            margin-top: 40px;
+            .select_img_1 {
+              display: none;
+            }
+            .fa-camera {
+              position: relative;
+              justify-content: center;
+              display: flex;
+              margin-bottom: 8px;
+            }
+            &__form {
+              &__text {
+                text-align: center;
+                font-size: 12px;
+                line-height: 1.4em;
+                width: 100%;
+              }
             }
           }
         }

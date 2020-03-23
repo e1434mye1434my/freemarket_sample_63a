@@ -13,15 +13,16 @@
         .itemphoto__box__content
           最大10枚までアップロードできます
         .itemphoto__box__select
-          = fields_for "#" do |f|
-            = icon('fas','camera')
-            = f.file_field :image, class: "select_img_1", type: "file", id: "select_img_1", name: "images[]"
-            .itemphoto__box__select__form
-              %label{for: "select_img_1", class: 'content__box__dropbox__1'}
-                .itemphoto__box__select__form__text
-                  ドラッグアンドドロップ
-                  %br/
-                  またはクリックしてファイルをアップロード
+          .itemphoto__box__select__1
+            = fields_for "#" do |f|
+              = icon('fas','camera')
+              = f.file_field :image, class: "select_img_1", type: "file", id: "select_img_1", name: "images[]"
+              .itemphoto__box__select__1__form
+                %label{for: "select_img_1", class: 'content__box__dropbox__1'}
+                  .itemphoto__box__select__1__form__text
+                    ドラッグアンドドロップ
+                    %br/
+                    またはクリックしてファイルをアップロード
 
     .itemSummary
       .itemSummary__name
