@@ -1,3 +1,4 @@
+@import "modules/toppage";
 @import "modules/main.scss";
 @import "font-awesome-sprockets";
 @import "font-awesome";
@@ -9,4 +10,12 @@
 @import "./modules/bread_crumbs";
 @import "./modules/show";
 @import "./modules/exhibition";
+@import "./modules/mypage";
+@import "./modules/side_menu";
+@import "./modules/logout";
+@import "./modules/cards_show";
+@import "./modules/cards_new";
+@import "./modules/flash";
+@import "./modules/delete_modal";
 @import "./reset";
+

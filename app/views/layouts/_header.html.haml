@@ -2,7 +2,7 @@
   .headerInner
     .mainHeader
       %h1.icon
-        = link_to image_tag('logo.png', class: 'logo'), '#'
+        = link_to image_tag('logo.png', class: 'logo'), root_path
       .searchBox
         %form.search{"accept-charset" => "UTF-8", :action => "#", :method => "GET"}
           %input#searchInput.search__input{:name => "key", :placeholder => "キーワードから探す"}/
@@ -11,8 +11,21 @@
               = image_tag "icon-search 1.png", class: "btn__icon--img"
     .nav
       %ul.listLeft
-        %li
-          = link_to 'カテゴリー', '#', class: "listLeft--first"
+        %li.listLeft--first
+          = link_to 'カテゴリー', '#', class: "listLeft--first__text"
+          .category--list
+            %ul.parent--list
+              - @parents.each do |parent|
+                %li.parent--category
+                  = link_to "#{parent.name}", product_path(parent), class: "parent--text", id: "#{parent.id}"
+                  %ul.child--list
+                    - parent.children.each do |child|
+                      %li.child--category
+                        = link_to "#{child.name}", product_path(child), class: "child--text", id: "#{child.id}"
+                        %ul.grandchild--list
+                          - child.children.each do |grandchild|
+                            %li.grandchild--category
+                              = link_to "#{grandchild.name}", product_path(grandchild), class: "grandchild--text",id: "#{grandchild.id}"
         %li
           = link_to 'ブランド', '#', class: "listLeft--second"
       %ul.listRight
