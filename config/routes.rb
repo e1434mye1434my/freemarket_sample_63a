@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'messages/index'
   get 'messages/upp'
   root to: 'kari#index'
-  get 'exhibition/index'
+  resources :exhibition
   get 'orders/new'
   get 'products/show'
 end
