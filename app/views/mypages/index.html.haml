@@ -1,8 +1,9 @@
 = render "layouts/header"
 = render "layouts/bread_crumbs"
 .wrapper
-  .flashBox--notice
-    = flash[:notice]
+  - if flash[:notice]
+    .flashBox--notice
+      = flash[:notice]
   .mypage-main-container.clearfix
     = render "side_menu"
     .mypage-content

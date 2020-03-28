@@ -151,7 +151,8 @@
   }
   .productLists {
     width: 780px;
-    margin: 26px auto;
+    margin: 26px auto 0;
+    padding-bottom: 26px;
     display: flex;
     justify-content: space-around;
     .productList {

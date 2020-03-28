@@ -14,7 +14,8 @@ class ProductsController < ApplicationController
   
   def destroy
     if @product.destroy
-      redirect_to mypages_index_path, flash: { notice: "商品を削除しました"}
+      flash[:notice] = "商品を削除しました"
+      redirect_to mypages_index_path
     else
       redirect_to product_path(params[:id])
     end
