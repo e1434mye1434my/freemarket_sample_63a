@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: 'toppage#index'
   get 'messages/index'
   get 'messages/upp'
+  root to: 'kari#index'
+  resources :exhibition
   get 'orders/new'
   get 'mypages/index'
   resources :products, only: [:show, :destroy]
