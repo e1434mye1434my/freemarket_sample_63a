@@ -53,6 +53,38 @@
                 font-weight: normal;
               }
             }
+
+            &__order {
+              background-color: #fff;
+              &--soldoutBtn {
+                display: block;
+                margin: 16px 0;
+                text-align: center;
+                width: 100%;
+                line-height: 60px;
+                font-size: 24px;
+                background-color: #888;
+                border: 1px solid #888;
+                color: #fff;
+                font-weight: 600;
+                text-decoration: none;
+                cursor: pointer;
+              }
+              &--progressBtn {
+                display: block;
+                margin: 16px 0;
+                text-align: center;
+                width: 100%;
+                line-height: 60px;
+                font-size: 24px;
+                background-color: $base_bgc;
+                border: 1px solid $base_bgc;
+                color: #fff;
+                font-weight: 600;
+                text-decoration: none;
+                cursor: pointer;
+              }
+            }
             
             &__detail{
               margin-bottom: 30px;

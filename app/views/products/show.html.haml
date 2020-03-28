@@ -19,10 +19,18 @@
                 %li.imgs__list
                   = image_tag 'burger-2762371_640.jpg', size: "140x87"
           .itemBox__price
-            %span ¥10000
+            %span 
+              = "¥#{@product.price.to_s(:delimited)}" 
             .itemBox__price--tax
               %span (税込)
               %span 送料込み
+          .itemBox__order
+            - if @product.sales_status == "売却済み"
+              .itemBox__order--soldoutBtn
+                売り切れました
+            - elsif user_signed_in? && @product.user_id != current_user.id
+              = link_to "購入画面に進む", buy_order_path(@product.id), class: "itemBox__order--progressBtn" 
+            - else
           .itemBox__detail product
           .table
             %table
