@@ -1,0 +1,51 @@
+= render "layouts/header"
+= render "layouts/bread_crumbs"
+.wrapper
+  .flashBox--notice
+    = flash[:notice]
+  .mypage-main-container.clearfix
+    = render "side_menu"
+    .mypage-content
+      .mypage-header
+        = link_to "#", class: "mypage-header__box" do
+          = image_tag("member_photo_noimage_thumb.png",size: '60x60',  class: "mypage-header__box-icon")
+          .mypage-header__box-name
+            淀川太郎
+          %span.mypage-header__box-evalution
+            評価
+          %span.mypage-header__box-evalution-count
+            0
+          %span.mypage-header__box-exhibitions
+            出品数
+          %span.mypage-header__box-exhibitions-count
+            0
+      .mypage-tab__container
+        %ul.tab-menu 
+          %li.tab.is-active
+            = link_to "お知らせ", "#", class: "tab is-active"
+          %li.tab
+            = link_to "やることリスト", "#", class: "tab"
+        // タブ切替表示コンテンツ
+        .panel-inner
+          %ul.panel-group
+            %li.panel.is-show
+              現在、お知らせはありません
+            %li.panel
+              現在、やることリストはありません
+      .mypage-tab__container-purchase
+        .mypage-tab__container-purchase-head
+          購入した商品
+        %ul.tab-menu__purchase 
+          %li.tab-purchase.is-current
+            = link_to "取引", "#", class: "tab is-current"
+          %li.tab-purchase
+            = link_to "過去の取引", "#", class: "tab"
+          // タブ切替表示コンテンツ
+        .panel-purchase-inner
+          %ul.panel-purchase-group
+            %li.panel-purchase.is-open
+              取引中の商品がありません
+            %li.panel-purchase
+              過去の取引がありません
+  = render "layouts/footer"
+  = render "exhibition_btn"

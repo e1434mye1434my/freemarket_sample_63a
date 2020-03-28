@@ -12,7 +12,7 @@
       margin:  0 auto;
       display: flex;
       &__title{
-        color: $fc-w;
+        color: $base_color;
         margin: 0 0 20px;
         font-size: 16px;
         font-weight: bold;
@@ -27,7 +27,7 @@
           margin: 0;
           padding: 0;
           &--links{
-            color: $fc-w;
+            color: $base_color;
             font-size: 12px;
             line-height: 32px;
             &:hover{
@@ -42,7 +42,7 @@
       max-width: 160px;
       width: 100%;
       .content__link{
-        color: $fc-w;
+        color: $base_color;
         font-size: 12px;
         line-height: 32px;
         &--img{
@@ -52,13 +52,13 @@
       }
     }
     small{
-      color: $fc-w;
+      color: $base_color;
     }
   }
   
     .purchaseBtn{
       width: 120px;
-      background-color: $bluegreen;
+      background-color: $base_bgc;
       text-align: center;
       border-radius: 4%;
       bottom: 32px;
@@ -68,7 +68,7 @@
       &__text{
         font-size: 18px;
         display: block;
-        color: $fc-w;
+        color: $base_color;
         margin-bottom: 5px;
       }
       
