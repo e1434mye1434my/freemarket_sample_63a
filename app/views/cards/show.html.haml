@@ -1,9 +1,7 @@
 = render "layouts/header"
 = render "layouts/bread_crumbs"
 .wrapper
-  - if flash[:notice]
-    .flashBox--notice
-      = flash[:notice]
+  = render partial: 'layouts/flash'
   .mypage-main-container.clearfix
     = render "mypages/side_menu"
     .mypage-content
