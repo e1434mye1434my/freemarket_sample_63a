@@ -230,7 +230,21 @@ other_child = Category.create(name: "その他")
     condition: '傷や汚れあり',
     size: 'L',
     introduction: '美品です',
-    sales_status: 3,
+    sales_status: 0,
+    user_id: '2',
+    saler_id: "",
+    buyer_id: "",
+    category_id: "3"
+  )
+  Product.create!(
+    id: '5',
+    name: 'ヴィトン カバン',
+    price: '20000',
+    stock: '1',
+    condition: '傷や汚れあり',
+    size: 'L',
+    introduction: '美品です',
+    sales_status: 0,
     user_id: '2',
     saler_id: "",
     buyer_id: "",
