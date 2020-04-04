@@ -1,0 +1,12 @@
+.footer-container
+  %ul.footer-container__list
+    %li
+      = link_to  "プライバシーポリシー", "#", class: "footer-container__list-inner"
+    %li
+      = link_to  "フリマ利用規約", "#",class: "footer-container__list-inner"
+    %li
+      = link_to  "特定商品取引に関する表記", "#", class: "footer-container__list-inner"
+  = link_to image_tag('logo-gray.png', class: "footer-container__logo", size: '100x65'), "#"
+  .footer-container__text
+    %small
+      = "©︎ #{Time.now.year} FURIMA"

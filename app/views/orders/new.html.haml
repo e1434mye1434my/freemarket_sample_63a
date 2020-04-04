@@ -1,7 +1,5 @@
 .order-container
-  .order-header
-    .order-header__inner
-      = link_to image_tag('logo.png'),"root_path"
+  = render "orders/header"
   .order-main
     .order-panel
       %p.order-panel__title 購入内容の確認
@@ -56,15 +54,4 @@
           .order-panel__item-box-inner__info
             .order-panel__item-box-inner__info-inner
               = link_to "購入する", pay_order_path, method: :post,  class: "order-panel__item-box-inner__info-order-btn"
-  .footer-container
-    %ul.footer-container__list
-      %li
-        = link_to  "プライバシーポリシー", "#", class: "footer-container__list-inner"
-      %li
-        = link_to  "フリマ利用規約", "#",class: "footer-container__list-inner"
-      %li
-        = link_to  "特定商品取引に関する表記", "#", class: "footer-container__list-inner"
-    = link_to image_tag('logo-white.png', class: "footer-container__logo", size: '100x65'), "#"
-    .footer-container__text
-      %small
-        = "©︎ #{Time.now.year} FURIMA"
+  = render "orders/footer"
