@@ -33,12 +33,41 @@
                 width: 560px;
                 align-items: center;
                 margin: 0 auto;
+                position: relative;
                 .imgs{
                   display: flex;
                   justify-content: center;
                   margin-top: 10px;
                   &__list{
                     margin: 0 10px 0 0;
+                  }
+                }
+                .soldout__tag {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  z-index: 1;
+                  width: 120px;
+                  height: 120px;
+                  overflow: hidden;
+                  &__text {
+                    position: absolute;
+                    top: 24px;
+                    font-size: 26px;
+                    font-weight: 600;
+                    letter-spacing: 2px;
+                    color: #fff;
+                    transform: rotate(-45deg);
+                  }
+                  &__back {
+                    position: absolute;
+                    left: 0px;
+                    top: 0px;
+                    z-index: -1;
+                    border-top: 120px solid #EA352E;
+                    border-right: 120px solid transparent;
+                    border-bottom: 0 solid transparent;
+                    border-left: 0 solid transparent;
                   }
                 }
               }

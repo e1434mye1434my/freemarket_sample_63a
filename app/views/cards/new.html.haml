@@ -1,13 +1,13 @@
 = render "layouts/header"
 = render "layouts/bread_crumbs"
 .wrapper
+  = render partial: 'layouts/flash'
   .mypage-main-container.clearfix
     = render "mypages/side_menu"
     .mypage-content
       .card-container
         %h2.card-container__header
           クレジットカード情報入力
-        -# = form_with id:'charge-form', url: cards_path, method: :post, local: true, class: 'card-container__inner card-container__inner-registration', html: {name: "inputForm"} do |f|
         = form_with model: @card, method: :post, local: true, class: 'card-container__inner card-container__inner-registration', id:'charge-form' do |f|
           .card-form
             .card-form__field

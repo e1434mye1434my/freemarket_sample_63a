@@ -1,6 +1,7 @@
 = render 'layouts/header'
 = render 'layouts/bread_crumbs'
 %main.main
+  = render partial: 'layouts/flash'
   .firstBox
     .secondBox
       .topBox
@@ -18,6 +19,11 @@
                   = image_tag 'hamburger-1281855_640.jpg', size: "140x87"
                 %li.imgs__list
                   = image_tag 'burger-2762371_640.jpg', size: "140x87"
+              - if @product.sales_status == "売却済み"
+                .soldout__tag
+                  .soldout__tag__text
+                    %p SOLD
+                  .soldout__tag__back
           .itemBox__price
             %span 
               = "¥#{@product.price.to_s(:delimited)}" 
