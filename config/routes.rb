@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     member do
       get '/buy', to: 'orders#new'
       post '/pay', to: 'orders#pay'
+      get '/done', to: 'orders#done'
     end
   end
 
