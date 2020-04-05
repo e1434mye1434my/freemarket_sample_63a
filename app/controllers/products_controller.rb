@@ -1,11 +1,12 @@
 class ProductsController < ApplicationController
   before_action :set_product, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
+  before_action :set_category, only: [:new, :create, :edit, :update]
+
   def index
     
   end
 
   def new
-    @category = Category.where(ancestry: nil)
     @product = Product.new
     @product.images.build
   end
@@ -20,9 +21,7 @@ class ProductsController < ApplicationController
   
   def create
     @product = Product.new(product_params)
-    @category = Category.where(ancestry: nil)
-    if @product.save
-      @product.update(sales_status: 0)
+    if @product.save(sales_status: 0)
       redirect_to root_path
     else
       render :new
@@ -30,12 +29,14 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @category = Category.where(ancestry: nil)
   end
 
   def update
-    @product.update(product_params)
-    @category = Category.where(ancestry: nil)
+    if @product.update(product_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
   
   def destroy
@@ -57,5 +58,9 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find(params[:id])
+  end
+
+  def set_category
+    @category = Category.where(ancestry: nil)
   end
 end
