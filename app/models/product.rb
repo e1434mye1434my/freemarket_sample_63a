@@ -4,9 +4,11 @@ class Product < ApplicationRecord
   has_many    :images, dependent: :destroy
   has_one     :shipping
   accepts_nested_attributes_for :images, allow_destroy: true
-  accepts_nested_attributes_for :shipping, allow_destroy: true
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
+  belongs_to_active_hash :burden
+  belongs_to_active_hash :condition
+  belongs_to_active_hash :estimated
   enum sales_status: {"出品中":0,"公開停止":1,"取引中":2,"売却済み":3}
 
   validates :images, presence: true, length: { maximum: 10}

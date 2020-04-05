@@ -247,19 +247,8 @@
             @include required
           }
         }
-        .item_status_list {
-          background-color: #fff;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          box-sizing: border-box;
-          color: #222;
-          font-size: 16px;
-          height: 48px;
-          line-height: 1;
-          margin: 0;
-          outline: none;
-          padding: 0 56px 0 16px;
-          width: 100%;
+        #product_condition_id {
+          @include selectBox
         }
         &__box {
           margin-top: 16px;
@@ -280,6 +269,9 @@
         .required {
           @include required
         }
+      }
+      #product_burden_id {
+        @include selectBox
       }
       .delivery_cost_list {
         background-color: #fff;
@@ -312,18 +304,7 @@
         }
       }
       #product_prefecture_id {
-        background-color: #fff;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        color: #222;
-        font-size: 16px;
-        height: 48px;
-        line-height: 1;
-        margin: 0;
-        outline: none;
-        padding: 0 56px 0 16px;
-        width: 100%;
+        @include selectBox
       }
       &__days {
         margin-top: 32px;
@@ -340,6 +321,9 @@
           line-height: 1.4em;
           font-weight: 600;
         }
+      }
+      #product_estimated_id {
+        @include selectBox
       }
       .delivery_days_list {
         background-color: #fff;

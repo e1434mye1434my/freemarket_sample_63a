@@ -10,52 +10,49 @@
           .itemBox__body
             %ul.itemBox__body--img
               %li
-                = image_tag 'burger-4215450_640.jpg', size: "560x352"
+                = image_tag @product.images.first.src.url, size: "560x352"
               %ul.imgs
-                %li.imgs__list
-                  = image_tag 'burger-4215450_640.jpg', size: "140x87"
-                %li.imgs__list
-                  = image_tag 'hamburger-1281855_640.jpg', size: "140x87"
-                %li.imgs__list
-                  = image_tag 'burger-2762371_640.jpg', size: "140x87"
-          .itemBox__price
-            %span ¥10000
-            .itemBox__price--tax
-              %span (税込)
-              %span 送料込み
-          .itemBox__detail product
+                - @product.images.each do |i|
+                  %li.imgs__list
+                    = image_tag i.src.url, size: "140x87"
+              .itemBox__price
+                %span= @product.price
+                .itemBox__price--tax
+                  %span (税込)
+                  %span 送料込み
+          .itemBox__detail
+            = @product.introduction
           .table
             %table
               %tr
                 %th 出品者
-                %td hoge
+                %td= @product.user.name
               %tr
                 %th カテゴリー
                 %td
-                  = link_to 'レディース', '#', class: "table__link"
-                  %br>/
-                  = link_to 'トップス', '#', class: "table__link"
-                  %br>/
-                  = link_to 'Tシャツ/カットソー', '#', class: "table__link"
+                  - @product.category.path.each do |category|
+                    = link_to category.name, product_path(category), class: "table__link"
+                    %br>/
+                  %end
               %tr
                 %th ブランド
-                %td
+                %td= @product.brand
               %tr
                 %th 商品のサイズ
-                %td
+                %td= @product.size
               %tr
                 %th 商品の状態
-                %td 新品/未使用
+                %td= @product.condition.name
               %tr
                 %th 配送料の負担
-                %td 送料込み(出品者負担)
+                %td= @product.burden.name
               %tr
                 %th 発送元の地域
                 %td
                   = link_to @product.prefecture.name, '#', class: "table__link"
               %tr
                 %th 発送日の目安
-                %td 1-2日で発送
+                %td=@product.estimated.name
           .optionalArea
             %ul
               %li.likeBtn.fa.fa-star
@@ -92,7 +89,7 @@
             後ろの商品
             %i.fa.fa-angle-right
       .relatedItem
-        = link_to 'レディースをもっと見る', '#', class: "relatedItem__etc"
+        = link_to "#{@product.category.root.name}をもっと見る", product_path(@product.category.root.id), class: "relatedItem__etc"
 = render 'layouts/aside'
 = render 'layouts/footer'
 = render 'mypages/exhibition_btn'
