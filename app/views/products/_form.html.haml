@@ -66,13 +66,13 @@
               必須
           .itemDetails__catagorie__box
             = f.collection_select :category_id, @category, :id, :name, {include_blank: "選択してください"}, {class:"item_categorie_list", id: "parent_category"}
-        -# .itemDetails__brand
-        -#   .itemDetails__brand__label
-        -#     ブランド
-        -#     %span.any
-        -#       任意
-        -#   .itemDetails__brand__box
-        -#     = f.text_field :text, class:"item_brand", placeholder: "例）シャネル"
+        .itemDetails__brand
+          .itemDetails__brand__label
+            ブランド
+            %span.any
+              任意
+          .itemDetails__brand__box
+            = f.text_field :brand, class:"item_brand", placeholder: "例）シャネル"
         .itemDetails__status
           .itemDetails__status__label
             商品の状態
