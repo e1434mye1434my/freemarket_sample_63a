@@ -155,13 +155,10 @@
     padding-bottom: 26px;
     display: flex;
     justify-content: space-around;
-    .productList {
-      width: 220px;
+    a {
+      background-color: #fff;
       display: inline-block;
-      float: left;
-      a {
-        background-color: #fff;
-        display: inline-block;
+    }
         .productList--img {
           width: 220px;
           height: 150px;
@@ -181,7 +178,6 @@
             object-fit: cover;
           }
         }
-      }
       .productList--body {
         background-color: white;
         color: #333;
@@ -201,7 +197,6 @@
           }
         }
       }
-    }
   }
 }
 
