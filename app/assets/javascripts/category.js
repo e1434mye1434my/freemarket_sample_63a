@@ -33,8 +33,8 @@ $(function(){
     var sizeSelectHtml = '';
     sizeSelectHtml = `<div class="itemDetails__size" id= 'size_wrapper'>
                           サイズ
-                        <span class="required">
-                          必須
+                        <span class="any">
+                          任意
                         </span>
                         <div class="itemDetails__box">
                           <select name= "size" class = "itemDetails__box--size">
@@ -52,7 +52,6 @@ $(function(){
   $("#parent_category").on("change", function () {
     //選択された親カテゴリーの名前を取得
     var parentCategory = document.getElementById("parent_category").value;
-    console.log(parentCategory)
     //親カテゴリーが初期値でないことを確認
     if (parentCategory != ""){ 
       $.ajax({
@@ -88,7 +87,6 @@ $(function(){
   $(".itemDetails__catagorie").on('change', '#child_category', function () {
     //選択された子カテゴリーのidを取得
     var childId = $('#child_category option:selected').data('category'); 
-    console.log(childId)
     //子カテゴリーが初期値でないことを確認
     if (childId != null){ 
       $.ajax({
@@ -122,7 +120,6 @@ $(function(){
   });
   $(".itemDetails__catagorie").on('change', '#grandchild_category', function () {
     var grandchildId = $('#grandchild_category option:selected').data('category');
-    console.log(grandchildId)
     //子カテゴリーが初期値でないことを確認
     if (grandchildId != null) {
             // $('#brand_wrapper').remove();
