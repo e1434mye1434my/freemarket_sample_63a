@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
       redirect_to controller: "cards", action: "new"
       flash[:alert] = "購入にはクレジットカードの登録が必要です"
     else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = Rails.application.credentials[:payjp][:private_key]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
       @card_brand = @default_card_information.brand
@@ -34,7 +34,7 @@ class OrdersController < ApplicationController
     @product = Product.find(params[:id])
     card = Card.where(user_id: current_user.id).first
     if @product.sales_status == "出品中"
-      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      Payjp.api_key = Rails.application.credentials[:payjp][:private_key]
       Payjp::Charge.create(
         amount: @product.price,
         customer: card.customer_id,
@@ -54,7 +54,7 @@ class OrdersController < ApplicationController
     if path[:controller] == "orders" && path[:action] == "new"
       @product = Product.find(params[:id])
       card = Card.where(user_id: current_user.id).first
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = Rails.application.credentials[:payjp][:private_key]
         customer = Payjp::Customer.retrieve(card.customer_id)
         @default_card_information = customer.cards.retrieve(card.card_id)
         @card_brand = @default_card_information.brand

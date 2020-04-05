@@ -9,7 +9,7 @@ class CardsController < ApplicationController
   end
 
   def create
-    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp.api_key = Rails.application.credentials[:payjp][:private_key]
       customer = Payjp::Customer.create(
         card: params[:payjp_token],
         metadata: {user_id: current_user.id}
@@ -27,7 +27,7 @@ class CardsController < ApplicationController
   def destroy
     card = Card.where(user_id: current_user.id).first
     if card.present?
-      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      Payjp.api_key = Rails.application.credentials[:payjp][:private_key]
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
       card.delete
@@ -38,7 +38,7 @@ class CardsController < ApplicationController
   def show
     @card = Card.where(user_id: current_user.id).first
     if @card.present?
-      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      Payjp.api_key = Rails.application.credentials[:payjp][:private_key]
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
       @card_brand = @default_card_information.brand
