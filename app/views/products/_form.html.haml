@@ -79,7 +79,7 @@
             %span.required
               必須
           .itemDetails__status__box
-            = f.select :condition, [["新品、未使用", 0],["未使用に近い", 1], ["目立った傷や汚れなし", 2], ["やや傷や汚れあり", 3], ["傷や汚れあり", 4], ["全体的に状態が悪い", 5]],{include_blank: "選択してください"}, {class: "item_status_list"}
+            = f.collection_select :condition_id, Condition.all, :id, :name, { include_blank: "選択してください" }
       %hr{color: "#efefef"}
 
       .itemDelivery
@@ -92,7 +92,7 @@
           %span.required
             必須
         .itemDelivery__box
-          = f.select :burden, [["送料込み(出品者負担", 0],["着払い(購入者負担)", 1]],{include_blank: "選択してください"}, {id: "product_prefecture_id"}
+          = f.collection_select :burden_id, Burden.all, :id, :name, { include_blank: "選択してください" }
         .itemDelivery__area
           配送元の地域
           %span.required
@@ -104,7 +104,7 @@
           %span.required
             必須
         .itemDelivery__box
-          = f.select :estimated, [["1~2日で発送", 0],["2~3日で発送", 1], ["4~7日で発送", 2]],{include_blank: "選択してください"}, {id: "product_prefecture_id"}
+          = f.collection_select :estimated_id, Estimated.all, :id, :name, { include_blank: "選択してください" }
       %hr{color: "#efefef"}
 
       .itemprice
