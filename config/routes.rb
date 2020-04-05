@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   get 'messages/upp'
 
   resources :products, except: :index do
-    get :order, on: :member
+    member do
+      get 'order'
+      get 'get_category_children', defaults: {format: 'json'}
+      get 'get_category_grandchildren', defaults: {format: 'json'}
+    end
     collection do
       get 'get_category_children', defaults: {format: 'json'}
       get 'get_category_grandchildren', defaults: {format: 'json'}
