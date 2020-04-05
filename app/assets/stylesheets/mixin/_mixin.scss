@@ -14,3 +14,30 @@
   left:240px;
   bottom:0;
 }
+
+@mixin btn($btn){
+  display: block;
+  margin: 16px auto;
+  width: 60%;
+  line-height: 48px;
+  font-size: 17px;
+  background-color: $btn;
+  border: 1px solid $btn;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+@mixin required{
+  font-size: 12px;
+  margin-left: 8px;
+  background-color: red;
+  color: white;
+  margin: 0;
+  padding: 0 4px;
+  border-radius: 2px;
+  display: inline-block;
+  font-style: normal;
+  line-height: 1.4em;
+}

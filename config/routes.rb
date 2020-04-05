@@ -3,11 +3,14 @@ Rails.application.routes.draw do
   root to: 'toppage#index'
   get 'messages/index'
   get 'messages/upp'
-  root to: 'kari#index'
-  resources :exhibition
-  get 'orders/new'
-  get 'mypages/index'
-  resources :products, only: [:show, :destroy]
+
+  resources :products, except: :index do
+    get :order, on: :member
+    collection do
+      get 'get_category_children', defaults: {format: 'json'}
+      get 'get_category_grandchildren', defaults: {format: 'json'}
+    end
+  end
 
   resources :cards, only: [:new, :show] do
     collection do

@@ -1,0 +1,155 @@
+.body
+  .content
+    .header
+      .header__logo
+        = link_to image_tag('logo.png', class: 'header_logo'), root_path
+        
+    = form_for @product do |f|
+      =render 'layouts/error_messages', model: f.object
+      .itemphoto
+        .itemphoto__box
+          .itemphoto__box__label
+            出品画像
+            %span.required
+              必須
+          .itemphoto__box__content
+            最大10枚までアップロードできます
+          .itemphoto__box__select
+            .itemphoto__box__select__1
+              = icon('fas','camera')
+              #image-box
+                #previews
+                  - if @product.persisted?
+                    - @product.images.each_with_index do |image, i|
+                      = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+                = f.fields_for :images do |image|
+                  .js-file_group{"data-index" => "#{image.index}"}
+                    = image.file_field :src, class: 'js-file'
+                    %br/
+                    %span.js-remove 削除
+                  - if @product.persisted?
+                    = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+                - if @product.persisted?
+                  .js-file_group{"data-index" => "#{@product.images.count}"}
+                    = file_field_tag :src, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
+                    .js-remove 削除
+
+              .itemphoto__box__select__text
+                ドラッグアンドドロップまたはクリックしてファイルをアップロード
+                  
+      .itemSummary
+        .itemSummary__name
+          .itemSummary__name__label
+            商品名
+            %span.required
+              必須
+          .itemSummary__name__box
+            = f.text_field :name, class:"item_name_textbox", maxlength:40, placeholder: "40文字まで"
+        .itemSummary__description
+          .itemSummary__description__label
+            商品の説明
+            %span.required
+              必須
+          .itemSummary__description__box
+            = f.text_area :introduction, class:"item_name_area", maxlength:1000, placeholder: text_placeholder
+          .itemSummary__description__counter
+            0/1000
+      %hr{color: "#efefef"}
+
+      .itemDetails
+        .itemDetails__title
+          商品の詳細
+        .itemDetails__catagorie
+          .itemDetails__catagorie__label
+            カテゴリー
+            %span.required
+              必須
+          .itemDetails__catagorie__box
+            = f.collection_select :category_id, @category, :id, :name, {include_blank: "選択してください"}, {class:"item_categorie_list", id: "parent_category"}
+        -# .itemDetails__brand
+        -#   .itemDetails__brand__label
+        -#     ブランド
+        -#     %span.any
+        -#       任意
+        -#   .itemDetails__brand__box
+        -#     = f.text_field :text, class:"item_brand", placeholder: "例）シャネル"
+        .itemDetails__status
+          .itemDetails__status__label
+            商品の状態
+            %span.required
+              必須
+          .itemDetails__status__box
+            = f.select :condition, [["新品、未使用", 0],["未使用に近い", 1], ["目立った傷や汚れなし", 2], ["やや傷や汚れあり", 3], ["傷や汚れあり", 4], ["全体的に状態が悪い", 5]],{include_blank: "選択してください"}, {class: "item_status_list"}
+      %hr{color: "#efefef"}
+
+      .itemDelivery
+        .itemDelivery__caution
+          配送について
+          = link_to "https://www.mercari.com/jp/help_center/article/68/" do
+            = icon("far", "question-circle", class: "question")
+        .itemDelivery__cost
+          配送料の負担
+          %span.required
+            必須
+        .itemDelivery__box
+          = f.select :burden, [["送料込み(出品者負担", 0],["着払い(購入者負担)", 1]],{include_blank: "選択してください"}, {id: "product_prefecture_id"}
+        .itemDelivery__area
+          配送元の地域
+          %span.required
+            必須
+        .itemDelivery__box
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, { include_blank: "選択してください" }
+        .itemDelivery__days
+          配送までの日数
+          %span.required
+            必須
+        .itemDelivery__box
+          = f.select :estimated, [["1~2日で発送", 0],["2~3日で発送", 1], ["4~7日で発送", 2]],{include_blank: "選択してください"}, {id: "product_prefecture_id"}
+      %hr{color: "#efefef"}
+
+      .itemprice
+        .itemprice__content
+          .itemprice__content__range
+            価格（¥300〜9,999,999）
+            = link_to "https://www.mercari.com/jp/help_center/article/64/" do
+              = icon("far", "question-circle", class: "question")
+          .itemprice__content__label
+            販売価格
+            %span.required
+              必須
+            %span.yen
+              ¥
+              = f.number_field :price, class:"delivery_days_list", value: 0
+          .itemprice__content__commission
+            販売手数料（10%）
+            %span.minus
+              ―
+          %hr{color: "#efefef"}
+          .itemprice__content__profit
+            販売利益
+            %span.minus
+              ―
+        .itemprice__Exhibition
+          .itemprice__Exhibition__btn
+            = f.submit "出品する", class: "exhibition"
+          .itemprice__Exhibition__draft
+            %button.draft 下書きに保存
+          .itemprice_Exhibition__Return
+            .itemprice_Exhibition__Return__btn
+              = link_to "もどる", :back, class: "back"
+        .itemprice__caution
+          禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+
+    .footer
+      .footer__ul
+      %ul
+        %li
+          プライバシーポリシー
+        %li
+          メルカリ利用規約
+        %li
+          特定商取引に関する表記
+      .footer__logo
+        = link_to image_tag('logo.png', class: 'footer_logo'), root_path
+      .footer__trademark
+        © FURIMA, Inc.
