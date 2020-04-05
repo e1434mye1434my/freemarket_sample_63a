@@ -26,16 +26,7 @@
           line-height: 1.4em;
           font-size: 14px;
           .required {
-            font-size: 12px;
-            margin-left: 8px;
-            background-color: red;
-            color: white;
-            margin: 0;
-            padding: 0 4px;
-            border-radius: 2px;
-            display: inline-block;
-            font-style: normal;
-            line-height: 1.4em;
+            @include required
           }
         }
         &__content {
@@ -49,26 +40,22 @@
           border-color: rgb(204, 204, 204);
           height: 150px;
           padding: 0;
-          cursor: pointer;
-          &__1 {
-            margin-top: 40px;
-            .select_img_1 {
-              display: none;
-            }
-            .fa-camera {
-              position: relative;
-              justify-content: center;
-              display: flex;
-              margin-bottom: 8px;
-            }
-            &__form {
-              &__text {
-                text-align: center;
-                font-size: 12px;
-                line-height: 1.4em;
-                width: 100%;
-              }
-            }
+          position: relative;
+          .js-remove{
+            margin-left: 10px;
+            font-size: 12px;
+          }
+          .fa-camera {
+            position: absolute;
+            cursor: pointer;
+            top: 30%;
+            left: 50%;
+          }
+          &__text {
+            position: absolute;
+            top: 50%;
+            left: 20%;
+            font-size: 12px;
           }
         }
       }
@@ -81,16 +68,7 @@
           font-weight: 600;
           line-height: 1.4em;
           .required {
-            font-size: 12px;
-            margin-left: 8px;
-            background-color: red;
-            color: white;
-            margin: 0;
-            padding: 0 4px;
-            border-radius: 2px;
-            display: inline-block;
-            font-style: normal;
-            line-height: 1.4em;
+            @include required
           }
         }
         &__box {
@@ -116,16 +94,7 @@
           font-weight: 600;
           line-height: 1.4em;
           .required {
-            font-size: 12px;
-            margin-left: 8px;
-            background-color: red;
-            color: white;
-            margin: 0;
-            padding: 0 4px;
-            border-radius: 2px;
-            display: inline-block;
-            font-style: normal;
-            line-height: 1.4em;
+            @include required
           }
         }
         &__box {
@@ -173,16 +142,7 @@
           font-weight: 600;
           line-height: 1.4em;
           .required {
-            font-size: 12px;
-            margin-left: 8px;
-            background-color: red;
-            color: white;
-            margin: 0;
-            padding: 0 4px;
-            border-radius: 2px;
-            display: inline-block;
-            font-style: normal;
-            line-height: 1.4em;
+            @include required
           }
         }
         .item_categorie_list {
@@ -196,11 +156,49 @@
           line-height: 1;
           margin: 0;
           outline: none;
+          margin-bottom: 10px;
           padding: 0 56px 0 16px;
           width: 100%;
         }
         &__box {
           margin-top: 16px;
+        }
+      }
+      &__size {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4em;
+        margin-top: 16px;
+        .any {
+          font-size: 12px;
+          margin-left: 8px;
+          background-color: #bfbfbf;
+          color: white;
+          margin: 0;
+          padding: 0 4px;
+          border-radius: 2px;
+          display: inline-block;
+          font-style: normal;
+          line-height: 1.4em;
+          font-weight: 600;
+        }
+      }
+      &__box{
+        margin-top: 16px;
+        &--size{
+          background-color: #fff;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          color: #222;
+          font-size: 16px;
+          height: 48px;
+          line-height: 1;
+          margin: 0;
+          outline: none;
+          padding: 0 56px 0 16px;
+          width: 100%;
+          font-weight: normal;
         }
       }
       &__brand {
@@ -246,16 +244,7 @@
           font-weight: 600;
           line-height: 1.4em;
           .required {
-            font-size: 12px;
-            margin-left: 8px;
-            background-color: red;
-            color: white;
-            margin: 0;
-            padding: 0 4px;
-            border-radius: 2px;
-            display: inline-block;
-            font-style: normal;
-            line-height: 1.4em;
+            @include required
           }
         }
         .item_status_list {
@@ -289,17 +278,7 @@
       &__cost {
         margin-top: 32px;
         .required {
-          font-size: 12px;
-          margin-left: 8px;
-          background-color: red;
-          color: white;
-          margin: 0;
-          padding: 0 4px;
-          border-radius: 2px;
-          display: inline-block;
-          font-style: normal;
-          line-height: 1.4em;
-          font-weight: 600;
+          @include required
         }
       }
       .delivery_cost_list {
@@ -332,7 +311,7 @@
           font-weight: 600;
         }
       }
-      .delivery_area_list {
+      #product_prefecture_id {
         background-color: #fff;
         border: 1px solid #ccc;
         border-radius: 4px;
@@ -398,16 +377,7 @@
           font-weight: 600;
           line-height: 1.4em;
           .required {
-            font-size: 12px;
-            margin-left: 8px;
-            background-color: red;
-            color: white;
-            margin: 0;
-            padding: 0 4px;
-            border-radius: 2px;
-            display: inline-block;
-            font-style: normal;
-            line-height: 1.4em;
+            @include required
           }
           .yen {
             font-size: 14px;

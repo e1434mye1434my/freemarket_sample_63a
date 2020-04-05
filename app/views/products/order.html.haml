@@ -1,7 +1,7 @@
 .order-container
   .order-header
     .order-header__inner
-      = link_to image_tag('logo.png'),"#"
+      = link_to image_tag('logo.png'), root_path
   .order-main
     .order-panel
       %p.order-panel__title 購入内容の確認
@@ -11,9 +11,10 @@
             .order-panel__item-box-inner__content--about
               = image_tag('image02.jpg',class: "order-panel__item-box-inner__content--about-image")
             .order-panel__item-box-inner__detail
-              %p.order-panel__item-box-inner__detail-name カメラ
+              %p.order-panel__item-box-inner__detail-name 
+                = @product.name
               %p.order-panel__item-box-inner__detail-price
-                %span ¥15,000
+                %span= "¥#{@product.price}"
                 %span  (送料込み)
       .order-panel__item-box
         .order-panel__item-box-inner
@@ -21,7 +22,7 @@
             %p.order-panel__item-box-inner__payment-message
               支払い金額
             %p.order-panel__item-box-inner__payment-price
-              ¥15,000
+              = "¥#{@product.price}"
           .order-panel__item-box-inner__point
             %p.order-panel__item-box-inner__point-message
               ポイントはありません
@@ -59,7 +60,7 @@
         = link_to  "フリマ利用規約", "#",class: "footer-container__list-inner"
       %li
         = link_to  "特定商品取引に関する表記", "#", class: "footer-container__list-inner"
-    = link_to image_tag('logo-white.png', class: "footer-container__logo", size: '100x65'), "#"
+    = link_to image_tag('logo-white.png', class: "footer-container__logo", size: '100x65'), root_path
     .footer-container__text
       %small
         = "©︎ #{Time.now.year} FURIMA"

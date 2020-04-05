@@ -1,7 +1,14 @@
 .purchaseBtn
-  - if user_signed_in? && current_user.id
+  - if controller_name == "products" 
+    -if user_signed_in? && current_user.id == @product.user_id
+      .purchaseBtn__text 出品する
+      = link_to image_tag('icon_camera.png', class: 'purchaseBtn__icon'), new_product_path
+    - else 
+      .purchaseBtn__text 注文する
+      = link_to image_tag('icon_camera.png', class: 'purchaseBtn__icon'), order_product_path
+  - elsif user_signed_in? && current_user.id
     .purchaseBtn__text 出品する
-    = link_to image_tag('icon_camera.png', class: 'purchaseBtn__icon'), '#'
+    = link_to image_tag('icon_camera.png', class: 'purchaseBtn__icon'), new_product_path
   - else 
     .purchaseBtn__text 注文する
-    = link_to image_tag('icon_camera.png', class: 'purchaseBtn__icon'), orders_new_path
+    = link_to image_tag('icon_camera.png', class: 'purchaseBtn__icon'), new_user_session_path

@@ -177,47 +177,47 @@ other_child = Category.create(name: "その他")
     end
   end
 
-  Product.create!(
-    id: '1',
-    name: 'カメラ',
-    price: '15000',
-    stock: '1',
-    condition: '傷や汚れあり',
-    size: 'L',
-    introduction: '美品です',
-    sales_status: '販売中',
-    user_id: '1',
-    saler_id: "",
-    buyer_id: "",
-    category_id: "1"
-  )
+  # Product.create!(
+  #   id: '1',
+  #   name: 'カメラ',
+  #   price: '15000',
+  #   stock: '1',
+  #   condition: '傷や汚れあり',
+  #   size: 'L',
+  #   introduction: '美品です',
+  #   sales_status: '販売中',
+  #   user_id: '1',
+  #   saler_id: "",
+  #   buyer_id: "",
+  #   category_id: "1"
+  # )
   
-  Product.create!(
-    id: '2',
-    name: 'ハンバーガー',
-    price: '500',
-    stock: '1',
-    condition: '傷や汚れあり',
-    size: 'L',
-    introduction: '美品です',
-    sales_status: '販売中',
-    user_id: '1',
-    saler_id: "",
-    buyer_id: "",
-    category_id: "2"
-  )
+  # Product.create!(
+  #   id: '2',
+  #   name: 'ハンバーガー',
+  #   price: '500',
+  #   stock: '1',
+  #   condition: '傷や汚れあり',
+  #   size: 'L',
+  #   introduction: '美品です',
+  #   sales_status: '販売中',
+  #   user_id: '1',
+  #   saler_id: "",
+  #   buyer_id: "",
+  #   category_id: "2"
+  # )
   
-  Product.create!(
-    id: '3',
-    name: '掃除機',
-    price: '20000',
-    stock: '1',
-    condition: '傷や汚れあり',
-    size: 'L',
-    introduction: '美品です',
-    sales_status: '販売中',
-    user_id: '2',
-    saler_id: "",
-    buyer_id: "",
-    category_id: "3"
-  )
+  # Product.create!(
+  #   id: '3',
+  #   name: '掃除機',
+  #   price: '20000',
+  #   stock: '1',
+  #   condition: '傷や汚れあり',
+  #   size: 'L',
+  #   introduction: '美品です',
+  #   sales_status: '販売中',
+  #   user_id: '2',
+  #   saler_id: "",
+  #   buyer_id: "",
+  #   category_id: "3"
+  # )

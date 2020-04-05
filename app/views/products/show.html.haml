@@ -52,7 +52,7 @@
               %tr
                 %th 発送元の地域
                 %td
-                  = link_to '青森県', '#', class: "table__link"
+                  = link_to @product.prefecture.name, '#', class: "table__link"
               %tr
                 %th 発送日の目安
                 %td 1-2日で発送
@@ -67,10 +67,10 @@
                   不適切な商品の通報
         - if user_signed_in? && @product.user_id == current_user.id
           .changeBox
-            = link_to '商品の編集', '#', class: "changeBox__editBtn"
+            = link_to '商品の編集', edit_product_path(@product), class: "changeBox__editBtn"
             %p.changeBox__text
               or
-            = link_to 'この商品を削除する', "", class: "changeBox__deleteBtn", id: "delete-js-modal__open"
+            = link_to 'この商品を削除する', product_path(@product), method: :delete, class: "changeBox__deleteBtn", id: "delete-js-modal__open"
             = render "layouts/delete_modal"
         .buttonBox
           %form{:action => "#", :method => "POST"}
