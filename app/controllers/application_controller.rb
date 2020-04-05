@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth
-  before_action :set_category
+  before_action :set_categories
 
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def set_category
+  def set_categories
     @parents = Category.where(ancestry: nil)
   end
 end
