@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.build
+    @url = request.url
   end
 
   def get_category_children
@@ -21,7 +22,8 @@ class ProductsController < ApplicationController
   
   def create
     @product = Product.new(product_params)
-    if @product.save(sales_status: 0)
+    if @product.save
+      @product.update(sales_status: 0)
       redirect_to root_path
     else
       render :new
@@ -29,6 +31,15 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+
+    @category_child_array = @product.category.parent.siblings
+
+    @category_grandchild_array = @product.category.siblings
+  
   end
 
   def update
