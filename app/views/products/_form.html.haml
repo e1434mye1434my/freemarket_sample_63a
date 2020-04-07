@@ -64,7 +64,7 @@
             カテゴリー
             %span.required
               必須
-          - if @url == 'http://localhost:3000/products/new'
+          - if @url == "/products/new"
             .itemDetails__catagorie__box
               = f.collection_select :category_id, @category, :id, :name, {include_blank: "選択してください"}, {class:"item_categorie_list", id: "parent_category"}
           - else

@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.build
-    @url = request.url
+    @url = request.fullpath
   end
 
   def get_category_children
@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
   
   def create
     @product = Product.new(product_params)
-    if @product.save
+    if @product.update
       @product.update(sales_status: 0)
       redirect_to root_path
     else
