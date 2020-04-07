@@ -1,0 +1,6 @@
+- if model.errors.any? 
+  - unless @product.valid?
+    .alert
+      %ul
+        -model.errors.full_messages.each do |message| 
+          %li= message

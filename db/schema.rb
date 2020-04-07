@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_03_22_092128) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -29,14 +30,28 @@ ActiveRecord::Schema.define(version: 2020_03_22_092128) do
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "src", null: false
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_images_on_product_id"
+  end
+
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "stock", null: false
+    t.integer "stock"
     t.integer "price", null: false
-    t.string "condition", null: false
-    t.string "size", null: false
+    t.integer "condition_id", null: false
+    t.string "size"
+    t.string "brand"
     t.text "introduction", null: false
-    t.integer "sales_status", default: 0, null: false
+    t.string "sales_status"
+    t.integer "burden_id", null: false
+    t.string "method"
+    t.integer "prefecture_id", null: false
+    t.integer "estimated_id", null: false
+
     t.integer "saler_id"
     t.integer "buyer_id"
     t.datetime "created_at", null: false
@@ -87,6 +102,9 @@ ActiveRecord::Schema.define(version: 2020_03_22_092128) do
   end
 
   add_foreign_key "cards", "users"
+
+  add_foreign_key "images", "products"
+
   add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
   add_foreign_key "shippings", "products"
