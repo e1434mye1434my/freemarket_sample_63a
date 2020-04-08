@@ -22,8 +22,7 @@ class ProductsController < ApplicationController
   
   def create
     @product = Product.new(product_params)
-    if @product.update
-      @product.update(sales_status: 0)
+    if @product.update(sales_status: 0)
       redirect_to root_path
     else
       render :new

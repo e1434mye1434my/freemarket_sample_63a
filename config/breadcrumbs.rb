@@ -18,7 +18,7 @@ crumb :card_show do
 end
 
 crumb :card_new do
-  link "クレジットカード入力", new_card_path
+  link "クレジットカード入力", new_cards_path
   parent :card_show
 end
 
