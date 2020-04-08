@@ -64,8 +64,22 @@
             カテゴリー
             %span.required
               必須
-          .itemDetails__catagorie__box
-            = f.collection_select :category_id, @category, :id, :name, {include_blank: "選択してください"}, {class:"item_categorie_list", id: "parent_category"}
+          - if @url == "/products/new"
+            .itemDetails__catagorie__box
+              = f.collection_select :category_id, @category, :id, :name, {include_blank: "選択してください"}, {class:"item_categorie_list", id: "parent_category"}
+          - else
+            .itemDetails__catagorie__box
+              = f.collection_select :category_id, @category, :id, :name, {selected: @product.category.root.id}, {class:"item_categorie_list", id: "parent_category"}
+            .itemDetails__catagorie__box#children_wrapper
+              = f.collection_select :category_id, @category_child_array, :id, :name, {selected: @product.category.parent.id}, {class:"item_categorie_list", id: "child_category"}
+            .itemDetails__catagorie__box#grandchildren_wrapper
+              = f.collection_select :category_id, @category_grandchild_array, :id, :name, {selected: @product.category.id}, {class:"item_categorie_list", id: "grandchild_category"}
+            .itemDetails__size#size_wrapper
+              サイズ
+              %span.any
+                任意
+              .itemDetails__box
+                =f.select :size, [["S"],["M"],["L"]],{include_blank: "選択してください",selected: @product.size}, { class: "itemDetails__box--size"}
         .itemDetails__brand
           .itemDetails__brand__label
             ブランド
@@ -119,7 +133,7 @@
               必須
             %span.yen
               ¥
-              = f.number_field :price, class:"delivery_days_list", value: 0
+              = f.number_field :price, class:"delivery_days_list"
           .itemprice__content__commission
             販売手数料（10%）
             %span.minus
