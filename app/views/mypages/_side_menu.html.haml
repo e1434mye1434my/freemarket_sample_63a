@@ -2,7 +2,7 @@
   .side-menu__bar
     %ul.side-menu__bar-list
       %li
-        = link_to "/mypages/index" ,class: "side-menu__bar-list-item", method: :get do
+        = link_to mypages_path ,class: "side-menu__bar-list-item", method: :get do
           マイページ
           %i.fas.fa-chevron-right
       %li
@@ -78,7 +78,7 @@
           発送元・お届け先住所変更
           %i.fas.fa-chevron-right
       %li
-        = link_to "/cards/show" ,class: "side-menu__bar-list-item" do
+        = link_to cards_path ,class: "side-menu__bar-list-item" do
           支払い方法
           %i.fas.fa-chevron-right
       %li

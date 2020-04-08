@@ -1,6 +1,7 @@
 = render 'layouts/header'
 = render 'layouts/bread_crumbs'
 %main.main
+  = render partial: 'layouts/flash'
   .firstBox
     .secondBox
       .topBox
@@ -15,81 +16,94 @@
                 - @product.images.each do |i|
                   %li.imgs__list
                     = image_tag i.src.url, size: "140x87"
-              .itemBox__price
-                %span= @product.price
-                .itemBox__price--tax
-                  %span (税込)
-                  %span 送料込み
-          .itemBox__detail
-            = @product.introduction
-          .table
-            %table
-              %tr
-                %th 出品者
-                %td= @product.user.name
-              %tr
-                %th カテゴリー
-                %td
-                  - @product.category.path.each do |category|
-                    = link_to category.name, product_path(category), class: "table__link"
-                    %br>/
-                  %end
-              %tr
-                %th ブランド
-                %td= @product.brand
-              %tr
-                %th 商品のサイズ
-                %td= @product.size
-              %tr
-                %th 商品の状態
-                %td= @product.condition.name
-              %tr
-                %th 配送料の負担
-                %td= @product.burden.name
-              %tr
-                %th 発送元の地域
-                %td
-                  = link_to @product.prefecture.name, '#', class: "table__link"
-              %tr
-                %th 発送日の目安
-                %td=@product.estimated.name
-          .optionalArea
-            %ul
-              %li.likeBtn.fa.fa-star
-                お気に入り 0
-            %ul.optinal
-              %li.optional__btn
-                = link_to '#', class: "optional__btn--text" do
-                  %i.fa.fa-flag
-                  不適切な商品の通報
-        - if user_signed_in? && @product.user_id == current_user.id
-          .changeBox
-            = link_to '商品の編集', edit_product_path(@product), class: "changeBox__editBtn"
-            %p.changeBox__text
-              or
-            = link_to 'この商品を削除する', product_path(@product), method: :delete, class: "changeBox__deleteBtn", id: "delete-js-modal__open"
-            = render "layouts/delete_modal"
-        .buttonBox
-          %form{:action => "#", :method => "POST"}
-            %input{:name => "userid", :type => "hidden", :value => "#"}
-            %textarea#textarea.textarea{:cols => "50", :name => "textarea", :required => "", :rows => "5"}
-            %p.text
-              相手のことを考え丁寧なコメントを心がけましょう。
-              %br>/
-              不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            %button.commentBtn.fa.fa-comment{:name => "button", :type => "submit"}
-              コメントする
-      %ul.links
-        %li
-          = link_to '#', class: "links__etc" do
-            %i.fa.fa-angle-left
-            前の商品
-        %li
-          = link_to '#', class: "links__etc " do
-            後ろの商品
-            %i.fa.fa-angle-right
-      .relatedItem
-        = link_to "#{@product.category.root.name}をもっと見る", product_path(@product.category.root.id), class: "relatedItem__etc"
+                - if @product.sales_status == "売却済み"
+                  .soldout__tag
+                    .soldout__tag__text
+                      %p SOLD
+                    .soldout__tag__back
+            .itemBox__price
+              %span 
+                = "¥#{@product.price.to_s(:delimited)}" 
+              .itemBox__price--tax
+                %span (税込)
+                %span 送料込み
+            .itemBox__order
+              - if @product.sales_status == "売却済み"
+                .itemBox__order--soldoutBtn
+                  売り切れました
+              - elsif user_signed_in? && @product.user_id != current_user.id
+                = link_to "購入画面に進む", buy_order_path(@product.id), class: "itemBox__order--progressBtn" 
+              - else
+            .itemBox__detail
+              = @product.introduction
+            .table
+              %table
+                %tr
+                  %th 出品者
+                  %td= @product.user.name
+                %tr
+                  %th カテゴリー
+                  %td
+                    - @product.category.path.each do |category|
+                      = link_to category.name, product_path(category), class: "table__link"
+                      %br>/
+                    %end
+                %tr
+                  %th ブランド
+                  %td= @product.brand
+                %tr
+                  %th 商品のサイズ
+                  %td= @product.size
+                %tr
+                  %th 商品の状態
+                  %td= @product.condition.name
+                %tr
+                  %th 配送料の負担
+                  %td= @product.burden.name
+                %tr
+                  %th 発送元の地域
+                  %td
+                    = link_to @product.prefecture.name, '#', class: "table__link"
+                %tr
+                  %th 発送日の目安
+                  %td=@product.estimated.name
+            .optionalArea
+              %ul
+                %li.likeBtn.fa.fa-star
+                  お気に入り 0
+              %ul.optinal
+                %li.optional__btn
+                  = link_to '#', class: "optional__btn--text" do
+                    %i.fa.fa-flag
+                    不適切な商品の通報
+          - if user_signed_in? && @product.user_id == current_user.id
+            .changeBox
+              = link_to '商品の編集', edit_product_path(@product), class: "changeBox__editBtn"
+              %p.changeBox__text
+                or
+              = link_to 'この商品を削除する', product_path(@product), method: :delete, class: "changeBox__deleteBtn", id: "delete-js-modal__open"
+              = render "layouts/delete_modal"
+          .buttonBox
+            %form{:action => "#", :method => "POST"}
+              %input{:name => "userid", :type => "hidden", :value => "#"}
+              %textarea#textarea.textarea{:cols => "50", :name => "textarea", :required => "", :rows => "5"}
+              %p.text
+                相手のことを考え丁寧なコメントを心がけましょう。
+                %br>/
+                不快な言葉遣いなどは利用制限や退会処分となることがあります。
+              %button.commentBtn.fa.fa-comment{:name => "button", :type => "submit"}
+                コメントする
+        %ul.links
+          %li
+            = link_to '#', class: "links__etc" do
+              %i.fa.fa-angle-left
+              前の商品
+          %li
+            = link_to '#', class: "links__etc " do
+              後ろの商品
+              %i.fa.fa-angle-right
+        .relatedItem
+          = link_to "#{@product.category.root.name}をもっと見る", product_path(@product.category.root.id), class: "relatedItem__etc"
 = render 'layouts/aside'
 = render 'layouts/footer'
 = render 'mypages/exhibition_btn'

@@ -8,7 +8,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :size            
       t.string :brand
       t.text :introduction,      null: false
-      t.string :sales_status    
+      t.integer :sales_status,    null: false, default: 0   
       t.integer :burden_id, null: false
       t.string :method          
       t.integer :prefecture_id,  null: false
