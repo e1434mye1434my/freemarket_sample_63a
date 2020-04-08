@@ -2,8 +2,7 @@
 - breadcrumb :mypage
 = render "layouts/bread_crumbs"
 .wrapper
-  .flashBox--notice
-    = flash[:notice]
+  = render partial: 'layouts/flash'
   .mypage-main-container.clearfix
     = render "side_menu"
     .mypage-content

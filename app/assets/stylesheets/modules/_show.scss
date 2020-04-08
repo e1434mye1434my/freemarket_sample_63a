@@ -32,12 +32,41 @@
                 width: 560px;
                 align-items: center;
                 margin: 0 auto;
+                position: relative;
                 .imgs{
                   display: flex;
                   justify-content: center;
                   margin-top: 10px;
                   &__list{
                     margin: 0 10px 0 0;
+                  }
+                }
+                .soldout__tag {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  z-index: 1;
+                  width: 120px;
+                  height: 120px;
+                  overflow: hidden;
+                  &__text {
+                    position: absolute;
+                    top: 24px;
+                    font-size: 26px;
+                    font-weight: 600;
+                    letter-spacing: 2px;
+                    color: #fff;
+                    transform: rotate(-45deg);
+                  }
+                  &__back {
+                    position: absolute;
+                    left: 0px;
+                    top: 0px;
+                    z-index: -1;
+                    border-top: 120px solid #EA352E;
+                    border-right: 120px solid transparent;
+                    border-bottom: 0 solid transparent;
+                    border-left: 0 solid transparent;
                   }
                 }
               }
@@ -50,6 +79,38 @@
               &--tax{
                 font-size: 0.4em;
                 font-weight: normal;
+              }
+            }
+
+            &__order {
+              background-color: #fff;
+              &--soldoutBtn {
+                display: block;
+                margin: 16px 0;
+                text-align: center;
+                width: 100%;
+                line-height: 60px;
+                font-size: 24px;
+                background-color: #888;
+                border: 1px solid #888;
+                color: #fff;
+                font-weight: 600;
+                text-decoration: none;
+                cursor: pointer;
+              }
+              &--progressBtn {
+                display: block;
+                margin: 16px 0;
+                text-align: center;
+                width: 100%;
+                line-height: 60px;
+                font-size: 24px;
+                background-color: $base_bgc;
+                border: 1px solid $base_bgc;
+                color: #fff;
+                font-weight: 600;
+                text-decoration: none;
+                cursor: pointer;
               }
             }
             
