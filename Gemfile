@@ -81,3 +81,4 @@ gem 'ancestry'
 gem 'jquery-rails'
 gem 'pry-rails'
 gem 'active_hash'
+gem "gretel"
