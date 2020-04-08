@@ -83,3 +83,4 @@ gem 'jquery-rails'
 gem 'payjp'
 gem 'pry-rails'
 gem 'active_hash'
+gem "gretel"
