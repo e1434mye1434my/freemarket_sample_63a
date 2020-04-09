@@ -1,3 +1,4 @@
+
 = render'layouts/header'
 .main
   %section.mainVisual
@@ -91,17 +92,17 @@
       .productHead
         = link_to "新規投稿商品", "#", class: "title"
       .productLists
-        - @products.each do |product|
-          = link_to 'products/3' do
+        - @products.each do |i|
+          = link_to product_path(i) do
             %figure.productList--img
-              = product.image
+              =image_tag i.images.first.src.url
             .productList--body
               %h3.name
-                = product.name
+                = i.name
               .details
                 %ul
                   %li
-                    = product.price
+                    = i.price
                   %li
                     = icon('fa', 'star', class: 'linkicon')
                     0
@@ -112,17 +113,17 @@
       .productHead
         = link_to "アーカイバ", "#", class: "title"
       .productLists
-        - @products.each do |product|
-          = link_to "products/3" do
+        - @products.each do |i|
+          = link_to product_path(i) do
             %figure.productList--img
-              = product.image
+              =image_tag i.images.first.src.url
             .productList--body
               %h3.name
-                = product.name
+                = i.name
               .details
                 %ul
                   %li
-                    = product.price
+                    = i.price
                   %li
                     = icon("fa", "star", class: "linkicon")
                     0
