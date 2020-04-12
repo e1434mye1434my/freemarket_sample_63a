@@ -1,0 +1,79 @@
+.main__box{
+  background: #f8f8f8;
+  float: right;
+  width: 700px;
+  .likePickupContainer {
+    padding: 80px 0 0;
+    background-color: #f8f8f8;
+    height: 100%;
+    .likehead {
+      text-align: center;
+      font-size: 28px;
+      line-height: 1.4;
+      font-weight: bold;
+    }
+  }
+
+  .likeBox {
+    .likeLists {
+      margin: 26px auto 0;
+      padding-bottom: 26px;
+      display: flex;
+      justify-content: space-around;
+      .likeList {
+        width: 220px;
+        display: inline-block;
+        a {
+          background-color: #fff;
+          display: inline-block;
+          .likeList--img {
+            width: 220px;
+            height: 150px;
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            z-index: auto;
+            img {
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              width: 100%;
+              z-index: auto;
+              height: 150px;
+              object-fit: cover;
+            }
+          }
+        }
+        .likeList--body {
+          background-color: white;
+          color: #333;
+          padding: 16px;
+          .likename {
+            overflow: hidden;
+            line-height: 1.5;
+            font-size: 16px;
+            text-align: left;
+            font-weight: bold;
+          }
+          .likedetails {
+            font-size: 16px;
+            ul {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              .likeprice{
+                font-weight: bold;
+              }
+              .likeicon {
+                font-size: inherit;
+                color: $base_bgc;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

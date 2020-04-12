@@ -149,10 +149,13 @@
               justify-content: space-between;
               padding-top: 10px;
                 .likeBtn{
+                  font-size: 16px;
                   padding: 10px;
                   border: solid 1px #ffb340;
                   border-radius: 40px;
                   color: $base_bgc;
+                  display: flex;
+                  line-height: 16px;
                   &:hover{
                     opacity: 0.5;
                   }

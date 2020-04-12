@@ -31,7 +31,9 @@
       %ul.listRight
         - if user_signed_in? && current_user.id
           %li
-            = link_to 'マイページ', mypages_path, class: "listRight__item"
+            = link_to 'いいね! 一覧', like_mypage_path(current_user.id), class: "listRight__item"
+          %li
+            = link_to 'マイページ', mypage_path(current_user.id), class: "listRight__item"
         - else
           %li
             = link_to 'ログイン', new_user_session_path, class: "listRight__item"

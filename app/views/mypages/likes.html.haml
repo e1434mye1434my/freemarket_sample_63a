@@ -1,0 +1,36 @@
+= render'layouts/header'
+- breadcrumb :mypage
+= render "layouts/bread_crumbs"
+.wrapper
+  .mypage-main-container.clearfix
+    = render "side_menu"
+    - if current_user.likes.count != 0
+      .main__box
+        %section.likePickupContainer
+          %h2.likehead いいね! 一覧
+          .likeBox
+            .likeLists
+              - current_user.liked_products.each do |product|
+                .likeList
+                  = link_to product_path(product) do
+                    %figure.likeList--img
+                      = image_tag product.images.first.src.url, height: '150px;', width: '220px;', class:'top_image'
+                    .likeList--body
+                      %h3.likename
+                        =product.name
+                      .likedetails
+                        %ul
+                          %li.likeprice
+                            =product.price
+                            円
+                          %li.likeicon
+                            %i.fa.fa-star
+                              =product.likes.count
+                        %p (税込)
+    - else
+      .main__box
+        %section.likePickupContainer
+          %h2.likehead いいね！している商品はありません
+= render 'layouts/aside'
+= render 'layouts/footer'
+= render 'mypages/exhibition_btn'
