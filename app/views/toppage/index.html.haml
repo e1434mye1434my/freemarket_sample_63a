@@ -105,7 +105,7 @@
                     = i.price
                   %li
                     = icon('fa', 'star', class: 'linkicon')
-                    0
+                    = i.likes.count
                 %p (税込)
   .pickupContainer
     %h2.head ピックアップブランド
@@ -126,7 +126,7 @@
                     = i.price
                   %li
                     = icon("fa", "star", class: "linkicon")
-                    0
+                    = i.likes.count
                 %p (税込)
 = render 'layouts/aside'
 = render 'layouts/footer'
