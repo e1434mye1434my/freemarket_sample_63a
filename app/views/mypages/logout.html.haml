@@ -1,11 +1,12 @@
 = render "layouts/header"
+- breadcrumb :logout
 = render "layouts/bread_crumbs"
 .wrapper
   .mypage-main-container.clearfix
     = render "side_menu"
     .mypage-content
       .logout-container
-        = link_to  destroy_user_session_path, method: :delete, class: "logout-container__inner" do
+        = link_to destroy_user_session_path, method: :delete, class: "logout-container__inner" do
           %button.logout-container__inner-btn ログアウト
 = render "layouts/footer"
 = render "exhibition_btn"

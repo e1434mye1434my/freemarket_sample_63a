@@ -1,7 +1,7 @@
 $(function(){
   // カテゴリーセレクトボックスのオプションを作成
   function appendOption(category){
-    var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
+    var html = `<option value="${category.id}">${category.name}</option>`;
     return html;
   }
   // 子カテゴリーの表示作成
@@ -37,11 +37,11 @@ $(function(){
                           任意
                         </span>
                         <div class="itemDetails__box">
-                          <select name= "size" class = "itemDetails__box--size">
+                        <select name= "product[size]" class = "itemDetails__box--size" id = "product_size">
                             <option value="">選択してください</option>
-                            <option value="0">S</option>
-                            <option value="1">M</option>
-                            <option value="2">L</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
                           </select>
                         </div>
                       </div>`;
@@ -86,7 +86,7 @@ $(function(){
   // 子カテゴリー選択後のイベント
   $(".itemDetails__catagorie").on('change', '#child_category', function () {
     //選択された子カテゴリーのidを取得
-    var childId = $('#child_category option:selected').data('category'); 
+    var childId = $('#child_category option:selected').val(); 
     //子カテゴリーが初期値でないことを確認
     if (childId != null){ 
       $.ajax({
@@ -119,11 +119,12 @@ $(function(){
     }
   });
   $(".itemDetails__catagorie").on('change', '#grandchild_category', function () {
-    var grandchildId = $('#grandchild_category option:selected').data('category');
+    var grandchildId = $('#grandchild_category option:selected').val();
     //子カテゴリーが初期値でないことを確認
     if (grandchildId != null) {
             // $('#brand_wrapper').remove();
-            appendSize();
+      $('#size_wrapper').remove();
+      appendSize();
     } else {
       //子カテゴリーが初期値になった時、孫以下を削除する
       $('#size_wrapper').remove();

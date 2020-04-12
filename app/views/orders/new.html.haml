@@ -1,7 +1,5 @@
 .order-container
-  .order-header
-    .order-header__inner
-      = link_to image_tag('logo.png'), root_path
+  = render "orders/header"
   .order-main
     .order-panel
       %p.order-panel__title 購入内容の確認
@@ -12,9 +10,10 @@
               = image_tag('image02.jpg',class: "order-panel__item-box-inner__content--about-image")
             .order-panel__item-box-inner__detail
               %p.order-panel__item-box-inner__detail-name 
-                = @product.name
+                = "#{@product.name}"
               %p.order-panel__item-box-inner__detail-price
-                %span= "¥#{@product.price}"
+                %span 
+                  = "¥#{@product.price.to_s(:delimited)}"
                 %span  (送料込み)
       .order-panel__item-box
         .order-panel__item-box-inner
@@ -22,7 +21,7 @@
             %p.order-panel__item-box-inner__payment-message
               支払い金額
             %p.order-panel__item-box-inner__payment-price
-              = "¥#{@product.price}"
+              = "¥#{@product.price.to_s(:delimited)}"
           .order-panel__item-box-inner__point
             %p.order-panel__item-box-inner__point-message
               ポイントはありません
@@ -34,10 +33,13 @@
             %p.order-panel__item-box-inner__info-detail
               クレジットカード
               %br
-              ************0000
-              %br
-              有効期限 00 / 00
-            .order-panel__item-box-inner__info-detail-logo
+                = "**** **** ****"+ "#{@default_card_information.last4}"
+              %span
+                - exp_month = @default_card_information.exp_month.to_s
+                - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                = "有効期限" + " " + exp_month + " / " + exp_year
+              .order-panel__item-box-inner__info-detail-logo
+                = image_tag "#{@card_src}", size: '50x15'
           .order-panel__item-box-inner__info
             .order-panel__item-box-inner__info-inner
               %p.order-panel__item-box-inner__info-inner-title
@@ -51,16 +53,5 @@
               淀川太郎
           .order-panel__item-box-inner__info
             .order-panel__item-box-inner__info-inner
-              = link_to "購入する", "#", class: "order-panel__item-box-inner__info-order-btn"
-  .footer-container
-    %ul.footer-container__list
-      %li
-        = link_to  "プライバシーポリシー", "#", class: "footer-container__list-inner"
-      %li
-        = link_to  "フリマ利用規約", "#",class: "footer-container__list-inner"
-      %li
-        = link_to  "特定商品取引に関する表記", "#", class: "footer-container__list-inner"
-    = link_to image_tag('logo-white.png', class: "footer-container__logo", size: '100x65'), root_path
-    .footer-container__text
-      %small
-        = "©︎ #{Time.now.year} FURIMA"
+              = link_to "購入する", pay_order_path, method: :post,  class: "order-panel__item-box-inner__info-order-btn"
+  = render "orders/footer"

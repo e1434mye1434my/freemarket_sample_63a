@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   resources :products, except: :index do
     member do
-      get 'order'
       get 'get_category_children', defaults: {format: 'json'}
       get 'get_category_grandchildren', defaults: {format: 'json'}
     end
@@ -16,11 +15,16 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :cards, only: [:new, :show] do
-    collection do
-      get 'show'
+  resource :cards, only: [:new, :create,:destroy, :show]
+
+  resources :order, only: %i[index] do
+    member do
+      get '/buy', to: 'orders#new'
+      post '/pay', to: 'orders#pay'
+      get '/done', to: 'orders#done'
     end
   end
+
 
   resources :mypages, only: [:index] do
     collection do

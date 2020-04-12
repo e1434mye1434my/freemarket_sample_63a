@@ -45,6 +45,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -80,5 +81,7 @@ gem 'mini_magick'
 gem 'devise'
 gem 'ancestry'
 gem 'jquery-rails'
+gem 'payjp'
 gem 'pry-rails'
 gem 'active_hash'
+gem "gretel"

@@ -1,18 +1,20 @@
 = render "layouts/header"
+- breadcrumb :card_new
 = render "layouts/bread_crumbs"
 .wrapper
+  = render partial: 'layouts/flash'
   .mypage-main-container.clearfix
     = render "mypages/side_menu"
     .mypage-content
       .card-container
         %h2.card-container__header
           クレジットカード情報入力
-        = form_with url: root_path, class: 'card-container__inner card-container__inner-registration' do |f|
+        = form_with model: @card, method: :post, local: true, class: 'card-container__inner card-container__inner-registration', id:'charge-form' do |f|
           .card-form
             .card-form__field
               %label.card-form__field-label カード番号
               %span.require 必須
-              %input.cardnum.input-default{type: 'text', placeholder: '半角英数字のみ'}
+              = f.text_field :number, class: "cardnum input-default", placeholder: '半角数字のみ', maxlength: "16", id: "card_number"
               .card-form__field-list
                 %li 
                   = image_tag 'visa.svg', size: '49x20'
@@ -43,7 +45,7 @@
             .card-form__field.form-wrapper
               %label.card-form__field-label セキュリティコード
               %span.require 必須
-              %input.cvcnum.input-default{type: 'number', placeholder: 'カード背面4桁もしくは3桁の番号'}
+              =f.text_field :cvc, class: "cvcnum input-default", type: 'number', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4", id: "cvc"
               .cvcnum-text
                 %span.cvcnum-text__question
                   ?
@@ -52,7 +54,8 @@
                   カードの裏面をご覧ください
                   %br
                   = image_tag 'seq-card.png',size: '240x105'
-            = f.submit '追加する', class: 'card-form__btn'
+              #card_token
+            = f.submit '追加する', class: 'card-form__btn', id: 'token_submit'
   = render "layouts/footer"
   = render "mypages/exhibition_btn"
 

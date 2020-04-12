@@ -1,41 +1,46 @@
 = render "layouts/header"
+- breadcrumb :card_show
 = render "layouts/bread_crumbs"
 .wrapper
+  = render partial: 'layouts/flash'
   .mypage-main-container.clearfix
     = render "mypages/side_menu"
     .mypage-content
       .card-container
         %h2.card-container__header
           支払い方法
-        .card-container__inner
-          .card-container__inner-content
-            %h3.card-container__inner-content-title
-              クレジットカード
-          .card-container__inner-box
-            .card-container__inner-box-content
-              = button_to new_card_path, method: :get, class: "add-card-btn" do
-                %i.far.fa-credit-card
-                クレジットカードを追加する
-          = link_to "#", class: "card-container__inner-box-link" do
-            支払い方法について
-            %i.fas.fa-chevron-right
-        //クレジット登録機能実装後、if文で出しわけ予定
-        -# .card-container__inner
-        -#   .card-container__inner-content
-        -#     %h3.card-container__inner-content-title
-        -#       クレジットカード一覧
-        -#   .card-container__inner-content
-        -#     %ul.card-container__inner-cardList
-        -#       %li
-        -#         = image_tag "visa.svg", size: '40x20', class: "cardList-sort"
-        -#         .cardList-num
-        -#         ************0000
-        -#         .cardList-expire
-        -#         00 / 00
-        -#         = link_to "削除する","#", class: "card-delete-btn" 
-        -#   = link_to "#", class: "card-container__inner-box-link" do
-        -#     支払い方法について
-        -#     %i.fas.fa-chevron-right
+        - if @card.blank?
+          .card-container__inner
+            .card-container__inner-content
+              %h3.card-container__inner-content-title
+                クレジットカード
+            .card-container__inner-box
+              .card-container__inner-box-content
+                = button_to new_cards_path, method: :get, class: "add-card-btn" do
+                  %i.far.fa-credit-card
+                  クレジットカードを追加する
+            = link_to "#", class: "card-container__inner-box-link" do
+              支払い方法について
+              %i.fas.fa-chevron-right
+        - else
+          .card-container__inner
+            .card-container__inner-content
+              %h3.card-container__inner-content-title
+                クレジットカード一覧
+            .card-container__inner-content
+              %ul.card-container__inner-cardList
+                %li
+                  = image_tag "#{@card_src}", size: '40x20', class: "cardList-sort"
+                  .cardList-num
+                  = "**** **** ****"+ "#{@default_card_information.last4}"
+                  .cardList-expire
+                    - exp_month = @default_card_information.exp_month.to_s
+                    - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                    = exp_month + " / " + exp_year
+                  = link_to "削除する",cards_path, method: :delete, class: "card-delete-btn" 
+            = link_to "#", class: "card-container__inner-box-link" do
+              支払い方法について
+              %i.fas.fa-chevron-right
   = render "layouts/footer"
   = render "mypages/exhibition_btn"
               
