@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
-  before_action :set_category, only: [:new, :create, :edit, :update]
+  before_action :set_category, only: [:new, :create, :edit, :update,:show, :destroy]
 
   def index
     
@@ -9,7 +9,6 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.build
-    @url = request.fullpath
   end
 
   def get_category_children
@@ -22,8 +21,7 @@ class ProductsController < ApplicationController
   
   def create
     @product = Product.new(product_params)
-    if @product.update
-      @product.update(sales_status: 0)
+    if @product.update(sales_status: 0)
       redirect_to root_path
     else
       render :new
@@ -31,8 +29,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @category_child_array = @product.category.parent.siblings
-    @category_grandchild_array = @product.category.siblings
+    @url = request.fullpath
   end
 
   def update
@@ -45,7 +42,7 @@ class ProductsController < ApplicationController
   
   def destroy
     if @product.destroy
-      redirect_to mypages_path
+      redirect_to mypage_path
       flash[:notice] = "商品を削除しました"
     else
       redirect_to product_path(params[:id])
@@ -55,6 +52,7 @@ class ProductsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @product.comments.includes(:user)
+    @like = Like.new
   end
 
   private

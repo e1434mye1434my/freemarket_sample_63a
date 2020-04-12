@@ -3,12 +3,12 @@ crumb :root do
 end
 
 crumb :mypage do
-  link "マイページ", mypages_path
+  link "マイページ", mypage_path(current_user.id)
   parent :root
 end
 
 crumb :logout do
-  link "ログアウト", logout_mypages_path
+  link "ログアウト", logout_mypage_path
   parent :mypage
 end
 
@@ -18,7 +18,7 @@ crumb :card_show do
 end
 
 crumb :card_new do
-  link "クレジットカード入力", new_card_path
+  link "クレジットカード入力", new_cards_path
   parent :card_show
 end
 

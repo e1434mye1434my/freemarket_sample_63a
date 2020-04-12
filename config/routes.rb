@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :products, except: :index do
     resources :comments, only: [:create, :destroy]
+    resources :likes, only: [:create, :destroy]
     member do
       get 'get_category_children', defaults: {format: 'json'}
       get 'get_category_grandchildren', defaults: {format: 'json'}
@@ -27,9 +28,10 @@ Rails.application.routes.draw do
   end
 
 
-  resources :mypages, only: [:index] do
-    collection do
+  resources :mypages, only: [:show] do
+    member do
       get 'logout', to: 'mypages#logout'
+      get 'like', to: 'mypages#likes'
     end
   end
 end

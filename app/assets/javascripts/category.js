@@ -37,11 +37,11 @@ $(function(){
                           任意
                         </span>
                         <div class="itemDetails__box">
-                          <select name= "size" class = "itemDetails__box--size">
+                        <select name= "product[size]" class = "itemDetails__box--size" id = "product_size">
                             <option value="">選択してください</option>
-                            <option value="0">S</option>
-                            <option value="1">M</option>
-                            <option value="2">L</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
                           </select>
                         </div>
                       </div>`;
