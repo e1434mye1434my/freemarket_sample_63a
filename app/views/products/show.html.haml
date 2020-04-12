@@ -120,6 +120,7 @@
                                 %i.fas.fa-trash-alt
           .buttonBox
             = form_with(model: [@product, @comment], method: :post, local: true) do |f|
+              = render 'layouts/error_messages', model: f.object
               = f.text_area :text, id: "textarea", class: "textarea"
               %p.text
                 相手のことを考え丁寧なコメントを心がけましょう。
