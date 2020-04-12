@@ -9,7 +9,6 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.build
-    @url = request.fullpath
   end
 
   def get_category_children
@@ -30,8 +29,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @category_child_array = @product.category.parent.siblings
-    @category_grandchild_array = @product.category.siblings
+    @url = request.fullpath
   end
 
   def update
@@ -44,7 +42,7 @@ class ProductsController < ApplicationController
   
   def destroy
     if @product.destroy
-      redirect_to mypages_path
+      redirect_to mypage_path
       flash[:notice] = "商品を削除しました"
     else
       redirect_to product_path(params[:id])

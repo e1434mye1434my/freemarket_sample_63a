@@ -55,7 +55,6 @@
           .itemSummary__description__counter
             0/1000
       %hr{color: "#efefef"}
-
       .itemDetails
         .itemDetails__title
           商品の詳細
@@ -64,22 +63,22 @@
             カテゴリー
             %span.required
               必須
-          - if @url == "/products/new"
-            .itemDetails__catagorie__box
-              = f.collection_select :category_id, @category, :id, :name, {include_blank: "選択してください"}, {class:"item_categorie_list", id: "parent_category"}
-          - else
+          - if @url == "/products/#{@product.id}/edit"
             .itemDetails__catagorie__box
               = f.collection_select :category_id, @category, :id, :name, {selected: @product.category.root.id}, {class:"item_categorie_list", id: "parent_category"}
             .itemDetails__catagorie__box#children_wrapper
-              = f.collection_select :category_id, @category_child_array, :id, :name, {selected: @product.category.parent.id}, {class:"item_categorie_list", id: "child_category"}
+              = f.collection_select :category_id, @product.category.parent.siblings, :id, :name, {selected: @product.category.parent.id}, {class:"item_categorie_list", id: "child_category"}
             .itemDetails__catagorie__box#grandchildren_wrapper
-              = f.collection_select :category_id, @category_grandchild_array, :id, :name, {selected: @product.category.id}, {class:"item_categorie_list", id: "grandchild_category"}
+              = f.collection_select :category_id, @product.category.siblings, :id, :name, {selected: @product.category.id}, {class:"item_categorie_list", id: "grandchild_category"}
             .itemDetails__size#size_wrapper
               サイズ
               %span.any
                 任意
               .itemDetails__box
                 =f.select :size, [["S"],["M"],["L"]],{include_blank: "選択してください",selected: @product.size}, { class: "itemDetails__box--size"}
+          - else
+            .itemDetails__catagorie__box
+              = f.collection_select :category_id, @category, :id, :name, {include_blank: "選択してください"}, {class:"item_categorie_list", id: "parent_category"}
         .itemDetails__brand
           .itemDetails__brand__label
             ブランド

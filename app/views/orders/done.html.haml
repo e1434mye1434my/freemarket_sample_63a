@@ -69,5 +69,5 @@
               %br
               評価後に取引は完了です。
             .order-panel__content-return
-              = link_to "マイページへ戻る", mypages_path, class: "order-panel__content-return-btn"
+              = link_to "マイページへ戻る", mypage_path(current_user.id), class: "order-panel__content-return-btn"
   = render "orders/footer"

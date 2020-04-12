@@ -10,7 +10,7 @@
         = link_to "#", class: "mypage-header__box" do
           = image_tag("member_photo_noimage_thumb.png",size: '60x60',  class: "mypage-header__box-icon")
           .mypage-header__box-name
-            淀川太郎
+            = current_user.name
           %span.mypage-header__box-evalution
             評価
           %span.mypage-header__box-evalution-count
