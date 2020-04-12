@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'messages/upp'
 
   resources :products, except: :index do
+    resources :comments, only: [:create, :destroy]
     member do
       get 'get_category_children', defaults: {format: 'json'}
       get 'get_category_grandchildren', defaults: {format: 'json'}
