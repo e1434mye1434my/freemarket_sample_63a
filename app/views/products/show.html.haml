@@ -106,15 +106,18 @@
                                 %i.fas.fa-trash-alt
           .buttonBox
             = form_with(model: [@product, @comment], method: :post, local: true) do |f|
-              %input{:name => "userid", :type => "hidden", :value => "#"}
+              -# %input{:name => "userid", :type => "hidden", :value => "#"}
               = f.text_area :text, id: "textarea", class: "textarea"
               %p.text
                 相手のことを考え丁寧なコメントを心がけましょう。
                 %br>/
                 不快な言葉遣いなどは利用制限や退会処分となることがあります。
-              = button_tag class: "commentBtn" ,type: "submit" do
-                .fa.fa-comment
-                コメントする
+              - if @product.sales_status != 3
+                = button_tag class: "commentBtn" ,type: "submit" do
+                  .fa.fa-comment
+                  コメントする
+              - else
+                .commentBtn-sold 売り切れのためコメントできません
         %ul.links
           %li
             = link_to '#', class: "links__etc" do
