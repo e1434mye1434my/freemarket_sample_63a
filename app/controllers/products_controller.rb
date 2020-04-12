@@ -9,7 +9,6 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.build
-    @url = request.fullpath
   end
 
   def get_category_children
@@ -30,6 +29,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @url = request.fullpath
   end
 
   def update
