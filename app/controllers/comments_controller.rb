@@ -2,8 +2,12 @@ class CommentsController < ApplicationController
   before_action :set_product
 
   def create
-    Comment.create(comment_params)
-    redirect_to product_path(@product)
+    @comment = Comment.new(comment_params)
+    if @comment.save
+      redirect_to product_path(@product)
+    else 
+      redirect_to product_path(@product), alert: 'コメントの投稿に失敗しました'
+    end
   end
 
   def destroy
