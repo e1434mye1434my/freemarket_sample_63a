@@ -2,7 +2,7 @@
   .side-menu__bar
     %ul.side-menu__bar-list
       %li
-        = link_to mypages_path ,class: "side-menu__bar-list-item", method: :get do
+        = link_to mypage_path ,class: "side-menu__bar-list-item", method: :get do
           マイページ
           %i.fas.fa-chevron-right
       %li
@@ -14,7 +14,7 @@
           やることリスト
           %i.fas.fa-chevron-right
       %li
-        = link_to "#" ,class: "side-menu__bar-list-item" do
+        = link_to like_mypage_path ,class: "side-menu__bar-list-item" do
           いいね！一覧
           %i.fas.fa-chevron-right
       %li
@@ -94,6 +94,6 @@
           電話番号の確認
           %i.fas.fa-chevron-right
       %li
-        = link_to logout_mypages_path ,class: "side-menu__bar-list-item" do
+        = link_to logout_mypage_path ,class: "side-menu__bar-list-item" do
           ログアウト
           %i.fas.fa-chevron-right

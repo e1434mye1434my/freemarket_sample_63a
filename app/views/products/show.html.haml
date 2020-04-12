@@ -69,8 +69,17 @@
                   %td=@product.estimated.name
             .optionalArea
               %ul
-                %li.likeBtn.fa.fa-star
-                  お気に入り 0
+                - if current_user.already_liked?(@product)
+                  %li
+                    = button_to product_like_path(@product), class: "likeBtn", method: :delete do
+                      %i.fa.fa-star
+                      いいね！を取り消す
+                      %span=@product.likes.count 
+                - else
+                  %li
+                    = button_to product_likes_path(@product), class:"likeBtn" do
+                      %i.fa.fa-star
+                      いいね！
               %ul.optinal
                 %li.optional__btn
                   = link_to '#', class: "optional__btn--text" do

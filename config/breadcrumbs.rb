@@ -3,12 +3,12 @@ crumb :root do
 end
 
 crumb :mypage do
-  link "マイページ", mypages_path
+  link "マイページ", mypage_path
   parent :root
 end
 
 crumb :logout do
-  link "ログアウト", logout_mypages_path
+  link "ログアウト", logout_mypage_path
   parent :mypage
 end
 
