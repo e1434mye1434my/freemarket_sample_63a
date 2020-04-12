@@ -1,0 +1,10 @@
+ja:
+  antivirus:
+    message: に不適切な単語が含まれています
+    profane_words:
+      - 死
+      - 殺す
+      - 糞
+      - うざい
+      - ブス
+      - ぶす

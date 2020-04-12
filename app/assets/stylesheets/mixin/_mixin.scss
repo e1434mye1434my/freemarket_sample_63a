@@ -56,3 +56,11 @@
   padding: 0 56px 0 16px;
   width: 100%;
 }
+
+@mixin clearfix () {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}

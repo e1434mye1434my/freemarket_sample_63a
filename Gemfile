@@ -85,3 +85,5 @@ gem 'payjp'
 gem 'pry-rails'
 gem 'active_hash'
 gem "gretel"
+gem 'rails-i18n', '~> 5.1' 
+gem 'antivirus'

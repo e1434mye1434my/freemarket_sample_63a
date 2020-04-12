@@ -97,16 +97,41 @@
                 or
               = link_to 'この商品を削除する', product_path(@product), method: :delete, class: "changeBox__deleteBtn", id: "delete-js-modal__open"
               = render "layouts/delete_modal"
+          .commentBox
+            %ul.commentBox-inner
+              -if @comments
+                -@product.comments.each do |comment|
+                  %li.commentBox-innerList
+                    .comment-user
+                      = image_tag("member_photo_noimage_thumb.png",size: '60x60',  class: "comment-user-image")
+                      .comment-user-name
+                        = comment.user.name
+                    .comment-body
+                      = comment.text
+                      .comment-icons
+                        .comment-icons-left
+                          %i.far.fa-clock
+                          %span
+                            = time_ago_in_words(comment.created_at)+"前"
+                        .comment-icons-right
+                          .comment-delete
+                            - if user_signed_in? && comment.user_id == current_user.id  || @product.user_id == current_user.id
+                              = link_to product_comment_path(@product,comment), method: :delete do
+                                %i.fas.fa-trash-alt
           .buttonBox
-            %form{:action => "#", :method => "POST"}
-              %input{:name => "userid", :type => "hidden", :value => "#"}
-              %textarea#textarea.textarea{:cols => "50", :name => "textarea", :required => "", :rows => "5"}
+            = form_with(model: [@product, @comment], method: :post, local: true) do |f|
+              = render 'layouts/error_messages', model: f.object
+              = f.text_area :text, id: "textarea", class: "textarea"
               %p.text
                 相手のことを考え丁寧なコメントを心がけましょう。
                 %br>/
                 不快な言葉遣いなどは利用制限や退会処分となることがあります。
-              %button.commentBtn.fa.fa-comment{:name => "button", :type => "submit"}
-                コメントする
+              - if @product.sales_status == "出品中"
+                = button_tag class: "commentBtn" ,type: "submit" do
+                  .fa.fa-comment
+                  コメントする
+              - else
+                .commentBtn-sold 売り切れのためコメントできません
         %ul.links
           %li
             = link_to '#', class: "links__etc" do

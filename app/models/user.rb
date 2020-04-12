@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :cards
   has_many :products
+  has_many :comments
+  has_one  :shipping
   has_many :likes, dependent: :destroy
   has_many :liked_products, through: :likes, source: :product
   def already_liked?(product)
