@@ -190,6 +190,102 @@
             }
           }
 
+          .commentBox {
+           background-color: $base_color;
+           padding: 24px 0 0 0;
+            &-inner {
+              margin: 0;
+              & li:first-child {
+                margin: 15px 0 0;
+              }
+              & li {
+                margin: 60px 0 0;
+              }
+              &List {
+                @include clearfix();
+                list-style: none;
+                .comment-user {
+                  float: left;
+                  position: relative;
+                  // top: -60px;
+                  // left: 30px;
+                  color: $dark;
+                  &-image {
+                    width: 40px;
+                    height: 40px;
+                    position: absolute;
+                    top: -20px;
+                    overflow: hidden;
+                    border-radius: 50%;
+                  }
+                  &-name {
+                    width: 600px;
+                    min-width: 600px;
+                    max-width: 100%;
+                    font-weight: 600;
+                    height: 20px;
+                    overflow: hidden;
+                    position: absolute;
+                    top: -20px;
+                    left: 55px;
+                    font-size: 13px;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                  }
+                }
+                .comment-body {
+                  width: 600px;
+                  float: right;
+                  position: relative;
+                  // top: -40px;
+                  left: 30px;
+                  padding: 16px;
+                  background-color: #eef0f4;
+                  border-radius: 15px;
+                  line-height: 15px;
+                  word-break: break-all;
+                  &:after {
+                    content: "";
+                    display: inline-block;
+                    position: absolute;
+                    top: 3px; 
+                    left: -19px;
+                    border: 8px solid transparent;
+                    border-right: 18px solid #edf1ee;
+                    -webkit-transform: rotate(35deg);
+                    transform: rotate(35deg);
+                  }
+                  .comment-icons {
+                    @include clearfix();
+                    margin: 8px 0 0;
+                    &-left {
+                      display: block;
+                      color: #aaa;
+                      float: left;
+                      & i  {
+                        vertical-align: middle;
+                      }
+                      & span {
+                        vertical-align: middle;
+                      }
+                    }
+                    &-right {
+                      float: right;
+                      .comment-delete {
+                        margin: 0 0 0 8px;
+                        & i {
+                          color: #aaa;
+                          vertical-align: middle;
+                          text-decoration: none;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+
           .buttonBox{
             text-align: center;
             padding: 24px;
