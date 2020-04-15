@@ -1,0 +1,48 @@
+= render'layouts/header'
+- breadcrumb :completed
+= render "layouts/bread_crumbs"
+.wrapper
+  .mypage-main-container.clearfix
+    = render "side_menu"
+    .mypage-content
+      %h2.mypage-tab-head 売却済みの商品
+      .mypage-tab__container
+        %ul.tab-menu__exhibiting 
+          %li.tab-exhibiting
+            = link_to "出品中", exhibiting_mypage_path
+          %li.tab-exhibiting
+            = link_to "取引中", in_progress_mypage_path
+          %li.tab-exhibiting.is-active
+            = link_to "売却済み", completed_mypage_path
+        .panel-exhibiting-inner
+          %ul.panel-exhibiting-group
+            - if @completed_products.count != 0
+              - @completed_products.each do |product|
+                %li.panel-exhibiting
+                  .exhibiting-list
+                    = link_to product_path(product), class: "exhibiting-list__link" do
+                      .exhibiting-list__link-inner
+                        = image_tag product.images.first.src.url, class: "exhibiting-list__link-innerImg"
+                      .exhibiting-list__link-body
+                        .exhibiting-list__link-bodyText
+                          = product.name
+                        .exhibiting-list__link-bodyUnder
+                          %span.exhibiting-list-count
+                            %i.far.fa-heart
+                            %span
+                              = product.likes.count
+                          %span.exhibiting-list-count
+                            %i.far.fa-comment-alt
+                            %span
+                              = product.comments.count
+                          .completed-list-status
+                            売却済み
+                      %i.fas.fa-chevron-right.arrowIcon  
+            - else
+              %li.panel-exhibiting
+                .exhibiting-list-none
+                  現在、売却済み商品はありません
+
+= render 'layouts/aside'
+= render 'layouts/footer'
+= render 'mypages/exhibition_btn'
