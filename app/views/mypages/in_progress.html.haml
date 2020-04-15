@@ -1,0 +1,25 @@
+= render'layouts/header'
+- breadcrumb :in_progress
+= render "layouts/bread_crumbs"
+.wrapper
+  .mypage-main-container.clearfix
+    = render "side_menu"
+    .mypage-content
+      %h2.mypage-tab-head 取引中の商品
+      .mypage-tab__container
+        %ul.tab-menu__exhibiting 
+          %li.tab-exhibiting
+            = link_to "出品中", exhibiting_mypage_path
+          %li.tab-exhibiting.is-active
+            = link_to "取引中", in_progress_mypage_path
+          %li.tab-exhibiting
+            = link_to "売却済み", completed_mypage_path
+        .panel-exhibiting-inner
+          %ul.panel-exhibiting-group
+            %li.panel-exhibiting
+              .exhibiting-list-none
+                現在、出品した商品はありません
+
+= render 'layouts/aside'
+= render 'layouts/footer'
+= render 'mypages/exhibition_btn'
