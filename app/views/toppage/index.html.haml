@@ -96,6 +96,11 @@
           = link_to product_path(i) do
             %figure.productList--img
               =image_tag i.images.first.src.url
+              - if i.sales_status == "売却済み"
+                .soldout__tag
+                  .soldout__tag__text
+                    %p SOLD
+                  .soldout__tag__back
             .productList--body
               %h3.name
                 = i.name
@@ -117,6 +122,11 @@
           = link_to product_path(i) do
             %figure.productList--img
               =image_tag i.images.first.src.url
+              - if i.sales_status == "売却済み"
+                .soldout__tag
+                  .soldout__tag__text
+                    %p SOLD
+                  .soldout__tag__back
             .productList--body
               %h3.name
                 = i.name
