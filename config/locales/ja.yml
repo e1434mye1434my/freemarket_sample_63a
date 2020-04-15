@@ -41,3 +41,16 @@ ja:
     attributes:
      comment:
        text: コメント
+    models:
+      product:
+    attributes:
+      product:
+        name: 商品名
+        category: カテゴリー
+        images: 出品画像
+        introduction: 商品の説明
+        price: 価格
+        condition: 商品の状態
+        burden: 配送料の負担
+        estimated: 配送元の日数
+        prefecture_id: 配送元の地域
