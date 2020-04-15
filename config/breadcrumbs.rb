@@ -22,6 +22,26 @@ crumb :card_new do
   parent :card_show
 end
 
+crumb  :likes do
+  link "いいね ! 一覧", like_mypage_path
+  parent :mypage
+end
+
+crumb  :exhibiting do
+  link "出品した商品 - 出品中", exhibiting_mypage_path
+  parent :mypage
+end
+
+crumb  :in_progress do
+  link "出品した商品 - 取引中", in_progress_mypage_path
+  parent :mypage
+end
+
+crumb  :completed do
+  link "出品した商品 - 売却済み", completed_mypage_path
+  parent :mypage
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
