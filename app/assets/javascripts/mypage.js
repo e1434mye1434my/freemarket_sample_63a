@@ -9,6 +9,7 @@ $(function(){
     }
   });
 });
+
 // タブ切替１
 $(function(){
   $('.tab').click(function(e){
@@ -20,6 +21,7 @@ $(function(){
     $('.panel').eq(index).addClass('is-show');
   });
 });
+
 // タブ切替2
 $(function(){
   $('.tab-purchase').click(function(e){
@@ -31,6 +33,7 @@ $(function(){
     $('.panel-purchase').eq(index).addClass('is-open');
   });
 });
+
  // ボタンクリック背景色変更
  $(function(){
    $('.logout-container__inner-btn').click(function(){
