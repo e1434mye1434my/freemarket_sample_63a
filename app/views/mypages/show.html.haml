@@ -18,7 +18,7 @@
           %span.mypage-header__box-exhibitions
             出品数
           %span.mypage-header__box-exhibitions-count
-            0
+            = current_user.products.count
       .mypage-tab__container
         %ul.tab-menu 
           %li.tab.is-active
