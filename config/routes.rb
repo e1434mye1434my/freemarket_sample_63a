@@ -32,6 +32,9 @@ Rails.application.routes.draw do
     member do
       get 'logout', to: 'mypages#logout'
       get 'like', to: 'mypages#likes'
+      get 'exhibiting', to: 'mypages#exhibiting'
+      get 'in_progress', to: 'mypages#in_progress'
+      get 'completed', to: 'mypages#completed'
     end
   end
 end
