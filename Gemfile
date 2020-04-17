@@ -85,3 +85,5 @@ gem 'payjp'
 gem 'pry-rails'
 gem 'active_hash'
 gem "gretel"
+gem 'devise-i18n'
+gem 'devise-i18n-views'
