@@ -4,6 +4,7 @@ class MypagesController < ApplicationController
 
   def show
     @sold_products = Product.where(sales_status: 3, user_id: current_user.id)
+    @purchased_products = Product.where(sales_status: 3, buyer_id: current_user.id)
   end
 
   def likes
