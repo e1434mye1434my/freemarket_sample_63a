@@ -17,7 +17,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string  :municipality,      null: false
       t.string  :house_number,      null: false
       t.string  :building
-      t.integer :tel,               unique: true
+      t.string  :tel,               unique: true, limit: 11
       t.string  :icon 
       
       ## Recoverable
