@@ -39,8 +39,8 @@ ja:
     models:
       comment:
     attributes:
-     comment:
-       text: コメント
+      comment:
+        text: コメント
     models:
       product:
     attributes:
