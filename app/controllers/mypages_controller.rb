@@ -20,6 +20,13 @@ class MypagesController < ApplicationController
     @completed_products = Product.where(sales_status: 3, user_id: current_user.id)
   end
 
+  def purchase
+  end
+
+  def purchased
+    @purchased_products = Product.where(sales_status: 3, buyer_id: current_user.id)
+  end
+
   def logout
   end
 end

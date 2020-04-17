@@ -35,6 +35,8 @@ Rails.application.routes.draw do
       get 'exhibiting', to: 'mypages#exhibiting'
       get 'in_progress', to: 'mypages#in_progress'
       get 'completed', to: 'mypages#completed'
+      get 'purchase', to: 'mypages#purchase'
+      get 'purchased', to: 'mypages#purchased'
     end
   end
 end

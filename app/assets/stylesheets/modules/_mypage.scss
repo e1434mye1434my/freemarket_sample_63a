@@ -333,3 +333,31 @@
 .panel-exhibiting.is-show {
   display: block;
 }
+
+.tab-menu__exhibiting-purchase {
+  font-size: 0;
+  background-color: #eee;
+  list-style: none;
+  padding: 0;
+  & li {
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    font-size: 22px;
+    vertical-align: top;
+    & a {
+      display: block;
+      position: relative;
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+      text-decoration: none;
+      line-height: 72px;
+    }
+  }
+}
+
+.tab-exhibiting-purchase.is-active {
+  background-color: #fff;
+  border-top: 2px solid #3CCACE
+}

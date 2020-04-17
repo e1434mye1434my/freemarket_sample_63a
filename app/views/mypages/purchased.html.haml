@@ -1,0 +1,45 @@
+= render'layouts/header'
+- breadcrumb :purchased
+= render "layouts/bread_crumbs"
+.wrapper
+  .mypage-main-container.clearfix
+    = render "side_menu"
+    .mypage-content
+      %h2.mypage-tab-head 購入した商品
+      .mypage-tab__container
+        %ul.tab-menu__exhibiting-purchase
+          %li.tab-exhibiting-purchase
+            = link_to "取引中", purchase_mypage_path
+          %li.tab-exhibiting-purchase.is-active
+            = link_to "過去の取引", purchased_mypage_path
+        .panel-exhibiting-inner
+          %ul.panel-exhibiting-group
+            - if @purchased_products.count != 0
+              - @purchased_products.each do |product|
+                %li.panel-exhibiting
+                  .exhibiting-list
+                    = link_to product_path(product), class: "exhibiting-list__link" do
+                      .exhibiting-list__link-inner
+                        = image_tag product.images.first.src.url, class: "exhibiting-list__link-innerImg"
+                      .exhibiting-list__link-body
+                        .exhibiting-list__link-bodyText
+                          = product.name
+                        .exhibiting-list__link-bodyUnder
+                          %span.exhibiting-list-count
+                            %i.far.fa-heart
+                            %span
+                              = product.likes.count
+                          %span.exhibiting-list-count
+                            %i.far.fa-comment-alt
+                            %span
+                              = product.comments.count
+                          .completed-list-status
+                            取引完了
+                      %i.fas.fa-chevron-right.arrowIcon  
+            - else
+              %li.panel-exhibiting
+                .exhibiting-list-none
+                  現在、購入した商品はありません
+= render 'layouts/aside'
+= render 'layouts/footer'
+= render 'mypages/exhibition_btn'
