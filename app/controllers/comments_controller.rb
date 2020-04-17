@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to product_path(@product)
     else 
-      render template: "products/show"
+      redirect_to product_path(@comment.product.id),alert: 'コメントの投稿に失敗しました'
     end
   end
 
