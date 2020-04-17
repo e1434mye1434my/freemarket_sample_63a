@@ -18,7 +18,7 @@
           %span.mypage-header__box-exhibitions
             出品数
           %span.mypage-header__box-exhibitions-count
-            0
+            = current_user.products.count
       .mypage-tab__container
         %ul.tab-menu 
           %li.tab.is-active
@@ -45,7 +45,31 @@
           %ul.panel-purchase-group
             %li.panel-purchase.is-open
               取引中の商品がありません
+          - if @purchased_products.count != 0
+            - @purchased_products.each do |product|
+              %li.panel-purchase
+                .purchased-list
+                  = link_to product_path(product), class: "purchased-list__link" do
+                    .purchased-list__link-inner
+                      = image_tag product.images.first.src.url, class: "purchased-list__link-innerImg"
+                    .purchased-list__link-body
+                      .purchased-list__link-bodyText
+                        = product.name
+                      .purchased-list__link-bodyUnder
+                        %span.purchased-list-count
+                          %i.far.fa-heart
+                          %span
+                            = product.likes.count
+                        %span.purchased-list-count
+                          %i.far.fa-comment-alt
+                          %span
+                            = product.comments.count
+                        .completed-list-status
+                          取引完了
+                    %i.fas.fa-chevron-right.arrowIcon  
+          - else
             %li.panel-purchase
-              過去の取引がありません
+              .purchased-list-none
+                現在、購入した商品はありません
   = render "layouts/footer"
   = render "exhibition_btn"

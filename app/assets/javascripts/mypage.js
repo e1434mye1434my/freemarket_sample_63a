@@ -1,14 +1,23 @@
 // メニュ現在地背景色変更
+// $(function(){
+//   $('.side-menu__bar-list-item').each(function(){
+//     const $href = $(this).attr('href');
+//     if(location.href.match($href)) {
+//       $(this).addClass('active');
+//     } else {
+//       $(this).removeClass('active');
+//     }
+//   });
+// });
+
 $(function(){
-  $('.side-menu__bar-list-item').each(function(){
-    const $href = $(this).attr('href');
-    if(location.href.match($href)) {
-      $(this).addClass('active');
-    } else {
-      $(this).removeClass('active');
-    }
-  });
+  $('.side-menu__bar .active').removeClass('active');
+  $('.side-menu__bar-list-item').filter(function(){return $(this).prop('href')==location.href;}).addClass('active');
 });
+
+
+
+
 // タブ切替１
 $(function(){
   $('.tab').click(function(e){
@@ -20,6 +29,7 @@ $(function(){
     $('.panel').eq(index).addClass('is-show');
   });
 });
+
 // タブ切替2
 $(function(){
   $('.tab-purchase').click(function(e){
@@ -31,6 +41,7 @@ $(function(){
     $('.panel-purchase').eq(index).addClass('is-open');
   });
 });
+
  // ボタンクリック背景色変更
  $(function(){
    $('.logout-container__inner-btn').click(function(){

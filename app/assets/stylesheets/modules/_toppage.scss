@@ -166,6 +166,34 @@
           overflow: hidden;
           margin: 0;
           z-index: auto;
+          .soldout__tag {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            &__text {
+              position: absolute;
+              top: 20px;
+              font-size: 22px;
+              font-weight: 600;
+              letter-spacing: 2px;
+              color: #fff;
+              transform: rotate(-45deg);
+            }
+            &__back {
+              position: absolute;
+              left: 0px;
+              top: 0px;
+              z-index: -1;
+              border-top: 100px solid #EA352E;
+              border-right: 100px solid transparent;
+              border-bottom: 0 solid transparent;
+              border-left: 0 solid transparent;
+            }
+          }
           img {
             position: absolute;
             top: 0;
