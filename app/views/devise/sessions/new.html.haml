@@ -1,17 +1,35 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.session-container
+  .session-header
+    .session-header__inner
+      = link_to image_tag('logo.png'), root_path
+  .session-main
+    .session-panel
+      .session-no-account
+        %p.session-no-accountText アカウントをお持ちでない方はこちら
+        = link_to "新規会員登録", new_user_registration_path, class: "session-no-accountLink"
+      .session-formInner
+        = link_to "#", class: "facebook-loginBtn" do
+          %i.fab.fa-facebook-square 
+          FaceBookでログイン
+        = link_to  "Googleでログイン", "#", class: "google-loginBtn" 
+      .session-formBox
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .field-group-email
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "session-formInput"
+          .field-group
+            = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "session-formInput"
+          .field-group
+            = f.submit "ログイン", class: "login-submit"
+            = link_to "パスワードをお忘れの方", "#", class: "field-group-forget"
+  .session-footer
+    %ul.session-footer__list
+      %li
+        = link_to  "プライバシーポリシー", "#", class: "session-footer__list-inner"
+      %li
+        = link_to  "フリマ利用規約", "#",class: "session-footer__list-inner"
+      %li
+        = link_to  "特定商品取引に関する表記", "#", class: "session-footer__list-inner"
+    = link_to image_tag('logo-gray.png', class: "session-footer__logo", size: '180x50'), root_path
+    .session-footer__text
+      %small
+        = "©︎ #{Time.now.year} FURIMA"
