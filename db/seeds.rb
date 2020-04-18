@@ -1,22 +1,38 @@
-5.times do |n|
-  User.create!(
-    name: "テストマン#{n + 1}",
-    email: "test#{n + 1}@test.com",
-    password: 'foobar',
-    password_confirmation: 'foobar',
-    first_name: 'テスト',
-    last_name: 'マン',
-    first_furigana: 'テスト',
-    last_furigana: 'マン',
-    birthday: '2000/01/01',
-    post_number: '0000000',
-    prefecture_id:  1,
-    municipality: '淀川区',
-    house_number: '新高１丁目1-1',
-    tel: '00000000000',
-    icon: ''
+User.create!(
+  name: "購入者",
+  email: "buyer@test.com",
+  password: 'buyeruser',
+  password_confirmation: 'buyeruser',
+  first_name: '購',
+  last_name: '入者',
+  first_furigana: 'コウ',
+  last_furigana: 'ニュウシャ',
+  birthday: '2000/01/01',
+  post_number: '0123456',
+  prefecture_id:  27,
+  municipality: '淀川区',
+  house_number: '新高x丁目x-x',
+  tel: '00000000000',
+  icon: ''
   )
-end
+
+User.create!(
+  name: "出品者",
+  email: "seller@test.com",
+  password: 'selleruser',
+  password_confirmation: 'selleruser',
+  first_name: '出',
+  last_name: '品者',
+  first_furigana: 'シュ',
+  last_furigana: 'ピンシャ',
+  birthday: '2000/01/01',
+  post_number: '0123456',
+  prefecture_id:  27,
+  municipality: '淀川区',
+  house_number: '新高x丁目x-x',
+  tel: '00000000000',
+  icon: ''
+  )
 
 women_child_array = ['トップス','ジャケット/アウター','パンツ','スカート','ワンピース','靴','ルームウェア/パジャマ','レッグウェア','帽子','バッグ','アクセサリー','ヘアアクセサリー','小物','時計','ウィッグ/エクステ','浴衣/水着','スーツ/フォーマル/ドレス','マタニティ','その他']
 
@@ -174,48 +190,3 @@ other_child = Category.create(name: "その他")
       grandchild.children.create(name: grandchildren)
     end
   end
-
-  # Product.create!(
-  #   id: '1',
-  #   name: 'カメラ',
-  #   price: '15000',
-  #   stock: '1',
-  #   condition: '傷や汚れあり',
-  #   size: 'L',
-  #   introduction: '美品です',
-  #   sales_status: '販売中',
-  #   user_id: '1',
-  #   saler_id: "",
-  #   buyer_id: "",
-  #   category_id: "1"
-  # )
-  
-  # Product.create!(
-  #   id: '2',
-  #   name: 'ハンバーガー',
-  #   price: '500',
-  #   stock: '1',
-  #   condition: '傷や汚れあり',
-  #   size: 'L',
-  #   introduction: '美品です',
-  #   sales_status: '販売中',
-  #   user_id: '1',
-  #   saler_id: "",
-  #   buyer_id: "",
-  #   category_id: "2"
-  # )
-  
-  # Product.create!(
-  #   id: '3',
-  #   name: '掃除機',
-  #   price: '20000',
-  #   stock: '1',
-  #   condition: '傷や汚れあり',
-  #   size: 'L',
-  #   introduction: '美品です',
-  #   sales_status: '販売中',
-  #   user_id: '2',
-  #   saler_id: "",
-  #   buyer_id: "",
-  #   category_id: "3"
-  # )
