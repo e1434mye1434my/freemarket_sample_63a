@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_04_12_020317) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.integer "product_id"
-    t.text "text"
+    t.text "text", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -77,35 +77,21 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
-  create_table "shippings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "product_id"
-    t.string "burden", null: false
-    t.string "method", null: false
-    t.string "area", null: false
-    t.string "estimated", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_shippings_on_product_id"
-    t.index ["user_id"], name: "index_shippings_on_user_id"
-  end
-
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.string "firstFurigana"
-    t.string "last_Furigana"
-    t.integer "birth_year", null: false
-    t.integer "birth_month", null: false
-    t.integer "birth_day", null: false
+    t.string "first_furigana", null: false
+    t.string "last_furigana", null: false
+    t.date "birthday", null: false
     t.integer "post_number", null: false
-    t.string "prefecture", null: false
+    t.integer "prefecture_id", null: false
     t.string "municipality", null: false
     t.string "house_number", null: false
-    t.integer "tel"
+    t.string "building"
+    t.string "tel", limit: 11
     t.string "icon"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -122,6 +108,4 @@ ActiveRecord::Schema.define(version: 0) do
   add_foreign_key "likes", "users"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
-  add_foreign_key "shippings", "products"
-  add_foreign_key "shippings", "users"
 end
