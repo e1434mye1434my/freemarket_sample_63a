@@ -55,7 +55,7 @@ $(function(){
     //親カテゴリーが初期値でないことを確認
     if (parentCategory != ""){ 
       $.ajax({
-        url: 'get_category_children',
+        url: '/products/get_category_children',
         type: 'GET',
         data: { parent_id: parentCategory },
         dataType: "json"
@@ -90,7 +90,7 @@ $(function(){
     //子カテゴリーが初期値でないことを確認
     if (childId != null){ 
       $.ajax({
-        url: 'get_category_grandchildren',
+        url: '/products/get_category_grandchildren',
         type: 'GET',
         data: { child_id: childId },
         dataType: 'json'

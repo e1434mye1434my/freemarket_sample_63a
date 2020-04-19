@@ -24,7 +24,8 @@ class ProductsController < ApplicationController
     if @product.update(sales_status: 0)
       redirect_to root_path
     else
-      render :new
+      @product.images.build
+      render action: :new
     end
   end
 
