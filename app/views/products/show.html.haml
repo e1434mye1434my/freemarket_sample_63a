@@ -69,7 +69,7 @@
                   %td=@product.estimated.name
             .optionalArea
               %ul
-                -if user_signed_in? && @product.user_id == current_user.id
+                -if user_signed_in? && @product.user_id != current_user.id
                   - if current_user.already_liked?(@product)
                     %li
                       = button_to product_like_path(@product), class: "likeBtn", method: :delete do
